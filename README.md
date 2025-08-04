@@ -209,7 +209,7 @@ Check out the `Examples/` directory for complete sample projects:
 - **Basic Animations**: Simple view animations and transitions
 - **Advanced Effects**: Complex particle systems and 3D transformations
 - **Micro-Interactions**: Gesture-driven animations and haptic feedback
-- **Performance Demos**: Optimization techniques and best practices
+- **Performance Optimization**: Advanced techniques and best practices
 
 ### Animation Gallery
 
@@ -249,6 +249,23 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**⭐ Star this repository if it helped you!**
+
+## 📊 Project Statistics
+
+<div align="center">
+
+[![GitHub stars](https://img.shields.io/github/stars/muhittincamdali/SwiftUI-Animation-Masterclass?style=social)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/muhittincamdali/SwiftUI-Animation-Masterclass?style=social)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/network)
+[![GitHub issues](https://img.shields.io/github/issues/muhittincamdali/SwiftUI-Animation-Masterclass)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/muhittincamdali/SwiftUI-Animation-Masterclass)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/pulls)
+
+</div>
+
+## 🌟 Stargazers
+
+[![Stargazers repo roster for @muhittincamdali/SwiftUI-Animation-Masterclass](https://reporoster.com/stars/muhittincamdali/SwiftUI-Animation-Masterclass)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/stargazers)
 
 ## 🙏 Acknowledgments
 
