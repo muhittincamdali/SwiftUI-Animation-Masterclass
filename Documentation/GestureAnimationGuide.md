@@ -1,1 +1,1 @@
-# GestureAnimationGuide
+# Gesture Animation Guide

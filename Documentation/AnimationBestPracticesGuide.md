@@ -1,1 +1,1 @@
-# AnimationBestPracticesGuide
+# Animation Best Practices Guide
