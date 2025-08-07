@@ -550,7 +550,6 @@ interactiveGestureManager.addSwipeGesture(
 
 ```bash
 # Clone the repository
-git clone https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass.git
 
 # Navigate to project directory
 cd SwiftUI-Animation-Masterclass
@@ -568,7 +567,6 @@ Add the framework to your project:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass.git", from: "1.0.0")
 ]
 ```
 
@@ -771,15 +769,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-[![GitHub stars](https://img.shields.io/github/stars/muhittincamdali/SwiftUI-Animation-Masterclass?style=social)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/muhittincamdali/SwiftUI-Animation-Masterclass?style=social)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/network)
-[![GitHub issues](https://img.shields.io/github/issues/muhittincamdali/SwiftUI-Animation-Masterclass)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/muhittincamdali/SwiftUI-Animation-Masterclass)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/pulls)
-[![GitHub contributors](https://img.shields.io/github/contributors/muhittincamdali/SwiftUI-Animation-Masterclass)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/graphs/contributors)
-[![GitHub last commit](https://img.shields.io/github/last-commit/muhittincamdali/SwiftUI-Animation-Masterclass)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/commits/master)
 
 </div>
 
 ## 🌟 Stargazers
 
-[![Stargazers repo roster for @muhittincamdali/SwiftUI-Animation-Masterclass](https://reporoster.com/stars/muhittincamdali/SwiftUI-Animation-Masterclass)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/stargazers)
