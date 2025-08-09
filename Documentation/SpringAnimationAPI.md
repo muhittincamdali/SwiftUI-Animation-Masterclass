@@ -1,5 +1,31 @@
 # Spring Animation API
 
+<!-- TOC START -->
+## Table of Contents
+- [Spring Animation API](#spring-animation-api)
+- [Overview](#overview)
+- [Core Classes](#core-classes)
+  - [SpringAnimation](#springanimation)
+  - [SpringAnimationManager](#springanimationmanager)
+- [Key Methods](#key-methods)
+  - [Creating Spring Animations](#creating-spring-animations)
+  - [Applying Spring Animations](#applying-spring-animations)
+- [Spring Parameters](#spring-parameters)
+  - [Damping](#damping)
+  - [Response](#response)
+  - [Mass](#mass)
+- [Predefined Spring Types](#predefined-spring-types)
+- [Configuration](#configuration)
+  - [SpringAnimationConfiguration](#springanimationconfiguration)
+- [Error Handling](#error-handling)
+- [Best Practices](#best-practices)
+- [Integration Examples](#integration-examples)
+  - [SwiftUI Integration](#swiftui-integration)
+  - [UIKit Integration](#uikit-integration)
+- [API Reference](#api-reference)
+<!-- TOC END -->
+
+
 ## Overview
 
 The `SpringAnimation` class provides natural, physics-based animations that mimic real-world spring behavior. These animations are perfect for creating organic, responsive user interfaces.

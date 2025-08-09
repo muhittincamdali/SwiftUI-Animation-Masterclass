@@ -1,5 +1,33 @@
 # Basic Animation API
 
+<!-- TOC START -->
+## Table of Contents
+- [Basic Animation API](#basic-animation-api)
+- [Overview](#overview)
+- [Core Classes](#core-classes)
+  - [BasicAnimation](#basicanimation)
+  - [AnimationCurve](#animationcurve)
+  - [BasicAnimationManager](#basicanimationmanager)
+- [Key Methods](#key-methods)
+  - [Creating Animations](#creating-animations)
+  - [Applying Animations](#applying-animations)
+  - [Property Animations](#property-animations)
+- [Animation Properties](#animation-properties)
+  - [Supported Properties](#supported-properties)
+  - [Custom Properties](#custom-properties)
+- [Configuration](#configuration)
+  - [BasicAnimationConfiguration](#basicanimationconfiguration)
+  - [Configuration Example](#configuration-example)
+- [Error Handling](#error-handling)
+- [Performance Optimization](#performance-optimization)
+- [Best Practices](#best-practices)
+- [Integration Examples](#integration-examples)
+  - [SwiftUI Integration](#swiftui-integration)
+  - [UIKit Integration](#uikit-integration)
+- [API Reference](#api-reference)
+<!-- TOC END -->
+
+
 ## Overview
 
 The `BasicAnimation` class provides fundamental animation capabilities for SwiftUI views. It handles simple property animations with customizable duration, curves, and delays.

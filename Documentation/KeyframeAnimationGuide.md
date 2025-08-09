@@ -1,5 +1,21 @@
 # Keyframe Animation Guide
 
+<!-- TOC START -->
+## Table of Contents
+- [Keyframe Animation Guide](#keyframe-animation-guide)
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Installation (SPM)](#installation-spm)
+- [Quick Start](#quick-start)
+- [API Reference](#api-reference)
+- [Usage Examples](#usage-examples)
+- [Performance](#performance)
+- [Security](#security)
+- [Troubleshooting](#troubleshooting)
+- [FAQ](#faq)
+<!-- TOC END -->
+
+
 ## Overview
 This document belongs to the SwiftUI Animation Masterclass repository. It explains goals, scope, and usage.
 

@@ -1,5 +1,27 @@
 # Animation Masterclass Manager API
 
+<!-- TOC START -->
+## Table of Contents
+- [Animation Masterclass Manager API](#animation-masterclass-manager-api)
+- [Overview](#overview)
+- [Core Classes](#core-classes)
+  - [AnimationMasterclassManager](#animationmasterclassmanager)
+  - [AnimationMasterclassConfiguration](#animationmasterclassconfiguration)
+- [Key Methods](#key-methods)
+  - [Initialization](#initialization)
+  - [Performance Configuration](#performance-configuration)
+  - [Animation Management](#animation-management)
+- [Error Handling](#error-handling)
+- [Performance Monitoring](#performance-monitoring)
+- [Accessibility Support](#accessibility-support)
+- [Best Practices](#best-practices)
+- [Integration Examples](#integration-examples)
+  - [Basic Integration](#basic-integration)
+  - [Advanced Integration](#advanced-integration)
+- [API Reference](#api-reference)
+<!-- TOC END -->
+
+
 ## Overview
 
 The `AnimationMasterclassManager` is the core component of the SwiftUI Animation Masterclass framework. It provides centralized control over all animation operations, configuration, and performance optimization.
