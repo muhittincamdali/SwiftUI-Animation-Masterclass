@@ -771,7 +771,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-[![GitHub stars](https://img.shields.io/github/stars/muhittincamdali/SwiftUI-Animation-Masterclass?style=social)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/muhittincamdali/SwiftUI-Animation-Masterclass?style=social&logo=github)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/muhittincamdali/SwiftUI-Animation-Masterclass?style=social)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/network)
 [![GitHub issues](https://img.shields.io/github/issues/muhittincamdali/SwiftUI-Animation-Masterclass)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/muhittincamdali/SwiftUI-Animation-Masterclass)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/pulls)
