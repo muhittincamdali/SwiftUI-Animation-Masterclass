@@ -1,4 +1,5 @@
 # 🎬 SwiftUI Animation Masterclass
+[![CI](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/actions/workflows/ci.yml)
 
 <!-- TOC START -->
 ## Table of Contents
