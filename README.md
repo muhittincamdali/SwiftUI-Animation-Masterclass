@@ -29,6 +29,12 @@
 
 ---
 
+## 🌟 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=muhittincamdali/SwiftUI-Animation-Masterclass&type=Date)](https://star-history.com/#muhittincamdali/SwiftUI-Animation-Masterclass&Date)
+
+---
+
 ## 📋 Table of Contents
 
 - [🚀 Overview](#-overview)
@@ -785,4 +791,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🌟 Stargazers
 
-[![Stargazers repo roster for @muhittincamdali/SwiftUI-Animation-Masterclass](https://starchart.cc/muhittincamdali/SwiftUI-Animation-Masterclass.svg)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/stargazers)
