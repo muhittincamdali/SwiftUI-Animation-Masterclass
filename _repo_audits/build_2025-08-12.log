@@ -1,0 +1,3 @@
+warning: 'swiftui-animation-masterclass': Source files for target AnimationUtilities should be located under 'Sources/AnimationUtilities', or a custom sources path can be set with the 'path' property in Package.swift
+warning: 'swiftui-animation-masterclass': Source files for target AnimationComponents should be located under 'Sources/AnimationComponents', or a custom sources path can be set with the 'path' property in Package.swift
+error: 'swiftui-animation-masterclass': target 'AnimationComponents' referenced in product 'AnimationComponents' is empty
