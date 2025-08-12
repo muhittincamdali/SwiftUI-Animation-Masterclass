@@ -785,4 +785,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🌟 Stargazers
 
-[![Stargazers repo roster for @muhittincamdali/SwiftUI-Animation-Masterclass](https://starchart.cc/muhittincamdali/SwiftUI-Animation-Masterclass.svg)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/stargazers)
