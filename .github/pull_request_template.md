@@ -1,48 +1,47 @@
-## Pull Request
+## Description
 
-Describe the purpose of this change and the problem it solves.
+<!-- Describe your changes in detail -->
 
-### Type of change
-- [ ] Feature
-- [ ] Fix
-- [ ] Documentation
-- [ ] Refactor/Chore
+## Related Issue
 
-### Checklist
-- [ ] Code builds and tests pass locally
-- [ ] Documentation updated if needed
-- [ ] Follows conventions and style guidelines
+<!-- Please link to the issue here using #issue_number -->
 
-## Overview
-This document belongs to the SwiftUI Animation Masterclass repository. It explains goals, scope, and usage.
+Fixes #
 
-## Architecture
-Clean Architecture and SOLID are followed to ensure maintainability and scalability.
+## Type of Change
 
-## Installation (SPM)
-```swift
-.package(url: "https://github.com/owner/SwiftUI-Animation-Masterclass.git", from: "1.0.0")
-```
+<!-- Put an `x` in all the boxes that apply -->
 
-## Quick Start
-```swift
-// Add a concise example usage here
-```
+- [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
+- [ ] ✨ New feature (non-breaking change which adds functionality)
+- [ ] 💥 Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] 🧭 New navigation pattern
+- [ ] 📝 Documentation update
+- [ ] 🔧 Refactoring (no functional changes)
 
-## API Reference
-Describe key types and methods exposed by this module.
+## Checklist
 
-## Usage Examples
-Provide several concrete end-to-end examples.
+<!-- Put an `x` in all the boxes that apply -->
 
-## Performance
-List relevant performance considerations.
+- [ ] My code follows the project's style guidelines
+- [ ] I have performed a self-review of my own code
+- [ ] I have tested navigation flows thoroughly
+- [ ] I have made corresponding changes to the documentation
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
 
-## Security
-Document security-sensitive areas and mitigations.
+## Navigation Scenarios Tested
 
-## Troubleshooting
-Known issues and solutions.
+<!-- Put an `x` in all the boxes that apply -->
 
-## FAQ
-Answer common questions with clear, actionable guidance.
+- [ ] Push/Pop navigation
+- [ ] Modal presentation
+- [ ] Tab switching
+- [ ] Deep link handling
+- [ ] Back navigation
+- [ ] State restoration
+
+## Additional Notes
+
+<!-- Add any additional notes for reviewers -->
