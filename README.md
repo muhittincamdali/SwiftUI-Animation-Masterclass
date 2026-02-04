@@ -1,101 +1,114 @@
+```
 <p align="center">
-  <img src="Assets/logo.png" alt="SwiftUI Animation Masterclass" width="200"/>
+  <a href="README.md">🇺🇸 English</a> |
+  <a href="README_TR.md">🇹🇷 Türkçe</a>
 </p>
 
-<h1 align="center">SwiftUI Animation Masterclass</h1>
+╔══════════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                      ║
+║   ███████╗██╗    ██╗██╗███████╗████████╗██╗   ██╗██╗                                ║
+║   ██╔════╝██║    ██║██║██╔════╝╚══██╔══╝██║   ██║██║                                ║
+║   ███████╗██║ █╗ ██║██║█████╗     ██║   ██║   ██║██║                                ║
+║   ╚════██║██║███╗██║██║██╔══╝     ██║   ██║   ██║██║                                ║
+║   ███████║╚███╔███╔╝██║██║        ██║   ╚██████╔╝██║                                ║
+║   ╚══════╝ ╚══╝╚══╝ ╚═╝╚═╝        ╚═╝    ╚═════╝ ╚═╝                                ║
+║                                                                                      ║
+║    █████╗ ███╗   ██╗██╗███╗   ███╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗           ║
+║   ██╔══██╗████╗  ██║██║████╗ ████║██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║           ║
+║   ███████║██╔██╗ ██║██║██╔████╔██║███████║   ██║   ██║██║   ██║██╔██╗ ██║           ║
+║   ██╔══██║██║╚██╗██║██║██║╚██╔╝██║██╔══██║   ██║   ██║██║   ██║██║╚██╗██║           ║
+║   ██║  ██║██║ ╚████║██║██║ ╚═╝ ██║██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║           ║
+║   ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝           ║
+║                                                                                      ║
+║   ████████████████████████████████████████████████████████████████████████████████   ║
+║   █ Beautiful, performant, and production-ready animations for SwiftUI          █   ║
+║   ████████████████████████████████████████████████████████████████████████████████   ║
+║                                                                                      ║
+╚══════════════════════════════════════════════════════════════════════════════════════╝
+```
 
-<p align="center">
-  <strong>✨ Beautiful, performant, and production-ready animations for SwiftUI</strong>
-</p>
+<div align="center">
 
-<p align="center">
-  <a href="https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/actions/workflows/ci.yml">
-    <img src="https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/actions/workflows/ci.yml/badge.svg" alt="CI Status"/>
-  </a>
-  <a href="https://codecov.io/gh/muhittincamdali/SwiftUI-Animation-Masterclass">
-    <img src="https://codecov.io/gh/muhittincamdali/SwiftUI-Animation-Masterclass/branch/main/graph/badge.svg" alt="Code Coverage"/>
-  </a>
-  <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.0"/>
-  <img src="https://img.shields.io/badge/iOS-17.0+-blue.svg" alt="iOS 17.0+"/>
-  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"/>
-  <a href="https://swiftpackageindex.com/muhittincamdali/SwiftUI-Animation-Masterclass">
-    <img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fmuhittincamdali%2FSwiftUI-Animation-Masterclass%2Fbadge%3Ftype%3Dplatforms" alt="Platforms"/>
-  </a>
-</p>
+**50+ production-ready SwiftUI animations with zero dependencies. Drop-in and go.**
 
-<p align="center">
-  <a href="#features">Features</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#quick-start">Quick Start</a> •
-  <a href="#animation-catalog">Animation Catalog</a> •
-  <a href="#documentation">Documentation</a>
-</p>
+[![Swift](https://img.shields.io/badge/Swift-6.0-F05138?style=for-the-badge&logo=swift&logoColor=white)](https://swift.org)
+[![iOS](https://img.shields.io/badge/iOS-17.0+-000000?style=for-the-badge&logo=apple&logoColor=white)](https://developer.apple.com/ios/)
+[![macOS](https://img.shields.io/badge/macOS-14.0+-000000?style=for-the-badge&logo=macos&logoColor=white)](https://developer.apple.com/macos/)
+[![visionOS](https://img.shields.io/badge/visionOS-1.0+-007AFF?style=for-the-badge&logo=apple&logoColor=white)](https://developer.apple.com/visionos/)
+[![SPM](https://img.shields.io/badge/SPM-Compatible-FA7343?style=for-the-badge&logo=swift&logoColor=white)](https://swift.org/package-manager/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![CI](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/actions)
+
+[Features](#-features) • [Quick Start](#-quick-start) • [Animations](#-animation-catalog) • [Advanced](#-advanced-usage) • [Docs](Documentation/)
+
+</div>
 
 ---
 
-## Why SwiftUI Animation Masterclass?
+## ✨ Features
 
-Creating stunning animations in SwiftUI shouldn't require hours of tweaking timing curves and keyframes. **SwiftUI Animation Masterclass** provides 50+ production-ready animations that you can drop into your app in seconds.
+- 🎨 **50+ Animations** — Bounce, shake, pulse, morph, flip, and more
+- ⚡ **Zero Dependencies** — Pure SwiftUI, no external libraries
+- 🎯 **Type-Safe API** — Compile-time safety with Swift 6
+- 📱 **Multi-Platform** — iOS, iPadOS, macOS, watchOS, tvOS, visionOS
+- 🔧 **Customizable** — Full control over timing, easing, and parameters
+- ♿ **Accessible** — Respects reduce motion preferences
+- 🧪 **Fully Tested** — 95%+ code coverage
+- 📖 **Well Documented** — DocC documentation with examples
 
-```swift
-// Before: Complex animation code
-withAnimation(.spring(response: 0.6, dampingFraction: 0.8, blendDuration: 0.25)) {
-    // Multiple state changes...
-}
+---
 
-// After: One line with Animation Masterclass
-Button("Tap Me")
-    .animate(.bounce)
+## 🏗️ Architecture
+
+```mermaid
+graph TB
+    subgraph "🎬 Animation Engine"
+        A[AnimationType] --> B[AnimationModifier]
+        B --> C[Core Animation Layer]
+    end
+    
+    subgraph "📱 SwiftUI Integration"
+        D[View] --> E[.animate() Modifier]
+        E --> A
+    end
+    
+    subgraph "⚙️ Configuration"
+        F[Duration]
+        G[Spring]
+        H[Repeat]
+        I[Accessibility]
+    end
+    
+    F --> B
+    G --> B
+    H --> B
+    I --> B
+    
+    C --> J[Rendered Animation]
+    
+    style A fill:#FA7343,stroke:#D35400,color:#fff
+    style D fill:#4A90D9,stroke:#2E5A8B,color:#fff
+    style J fill:#50C878,stroke:#3D9B5C,color:#fff
 ```
 
-## Features
+---
 
-| Feature | Description |
-|---------|-------------|
-| 🎨 **50+ Animations** | Bounce, shake, pulse, morph, flip, and more |
-| ⚡ **Zero Dependencies** | Pure SwiftUI, no external libraries |
-| 🎯 **Type-Safe API** | Compile-time safety with Swift 6 |
-| 📱 **Multi-Platform** | iOS, iPadOS, macOS, watchOS, tvOS, visionOS |
-| 🔧 **Customizable** | Full control over timing, easing, and parameters |
-| ♿ **Accessible** | Respects reduce motion preferences |
-| 🧪 **Fully Tested** | 95%+ code coverage |
-| 📖 **Well Documented** | DocC documentation with examples |
+## 🚀 Quick Start
 
-## Installation
-
-### Swift Package Manager
-
-Add to your `Package.swift`:
+### Installation
 
 ```swift
+// Package.swift
 dependencies: [
     .package(url: "https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass.git", from: "1.0.0")
 ]
 ```
 
-Or in Xcode: **File → Add Package Dependencies** → Enter the repository URL.
-
-### Requirements
-
-| Platform | Minimum Version |
-|----------|-----------------|
-| iOS | 17.0+ |
-| macOS | 14.0+ |
-| watchOS | 10.0+ |
-| tvOS | 17.0+ |
-| visionOS | 1.0+ |
-
-## Quick Start
-
-### 1. Import the Package
+### Basic Usage
 
 ```swift
 import SwiftUIAnimationMasterclass
-```
 
-### 2. Add Animation to Any View
-
-```swift
 struct ContentView: View {
     @State private var animate = false
     
@@ -104,72 +117,64 @@ struct ContentView: View {
             .font(.system(size: 60))
             .foregroundStyle(.red)
             .animate(.heartbeat, trigger: animate)
-            .onTapGesture {
-                animate.toggle()
-            }
+            .onTapGesture { animate.toggle() }
     }
 }
 ```
 
-### 3. That's It! 🎉
+### One-Line Magic
 
-## Animation Catalog
+```swift
+// Before: Complex animation code
+withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+    // Multiple state changes...
+}
+
+// After: One line with Animation Masterclass
+Button("Tap Me")
+    .animate(.bounce)
+```
+
+---
+
+## 🎭 Animation Catalog
 
 ### Attention Seekers
 
-| Animation | Preview | Usage |
-|-----------|---------|-------|
-| Bounce | 🔵 | `.animate(.bounce)` |
-| Shake | 🔴 | `.animate(.shake)` |
-| Pulse | 🟢 | `.animate(.pulse)` |
-| Wobble | 🟡 | `.animate(.wobble)` |
-| Swing | 🟣 | `.animate(.swing)` |
-| Heartbeat | ❤️ | `.animate(.heartbeat)` |
-| Rubber Band | 🔵 | `.animate(.rubberBand)` |
-| Flash | ⚡ | `.animate(.flash)` |
-| Jello | 🟢 | `.animate(.jello)` |
-| Tada | 🎉 | `.animate(.tada)` |
+| Animation | Usage |
+|-----------|-------|
+| 🔵 Bounce | `.animate(.bounce)` |
+| 🔴 Shake | `.animate(.shake)` |
+| 🟢 Pulse | `.animate(.pulse)` |
+| 🟡 Wobble | `.animate(.wobble)` |
+| 🟣 Swing | `.animate(.swing)` |
+| ❤️ Heartbeat | `.animate(.heartbeat)` |
+| ⚡ Flash | `.animate(.flash)` |
+| 🎉 Tada | `.animate(.tada)` |
 
-### Entrances
+### Entrances & Exits
 
-| Animation | Preview | Usage |
-|-----------|---------|-------|
-| Fade In | ▶️ | `.animate(.fadeIn)` |
-| Slide In | ➡️ | `.animate(.slideIn(from: .leading))` |
-| Zoom In | 🔍 | `.animate(.zoomIn)` |
-| Flip In | 🔄 | `.animate(.flipIn)` |
-| Drop In | ⬇️ | `.animate(.dropIn)` |
-| Roll In | 🎲 | `.animate(.rollIn)` |
-| Bounce In | ⚡ | `.animate(.bounceIn)` |
-
-### Exits
-
-| Animation | Preview | Usage |
-|-----------|---------|-------|
-| Fade Out | ◀️ | `.animate(.fadeOut)` |
-| Slide Out | ⬅️ | `.animate(.slideOut(to: .trailing))` |
-| Zoom Out | 🔎 | `.animate(.zoomOut)` |
-| Flip Out | 🔄 | `.animate(.flipOut)` |
-| Hinge | 📎 | `.animate(.hinge)` |
-
-### Morphs
-
-| Animation | Preview | Usage |
-|-----------|---------|-------|
-| Morph | 🔀 | `.animate(.morph(to: shape))` |
-| Liquid | 💧 | `.animate(.liquid)` |
-| Elastic | 🎯 | `.animate(.elastic)` |
+| Entrance | Exit | Usage |
+|----------|------|-------|
+| Fade In | Fade Out | `.animate(.fadeIn)` / `.animate(.fadeOut)` |
+| Slide In | Slide Out | `.animate(.slideIn(from: .leading))` |
+| Zoom In | Zoom Out | `.animate(.zoomIn)` / `.animate(.zoomOut)` |
+| Flip In | Flip Out | `.animate(.flipIn)` / `.animate(.flipOut)` |
+| Bounce In | — | `.animate(.bounceIn)` |
+| Drop In | Hinge | `.animate(.dropIn)` / `.animate(.hinge)` |
 
 ### Continuous
 
-| Animation | Preview | Usage |
-|-----------|---------|-------|
-| Spin | 🔄 | `.animate(.spin)` |
-| Float | 🎈 | `.animate(.float)` |
-| Glow | ✨ | `.animate(.glow)` |
-| Breathe | 🌬️ | `.animate(.breathe)` |
+| Animation | Usage |
+|-----------|-------|
+| 🔄 Spin | `.animate(.spin, repeatForever: true)` |
+| 🎈 Float | `.animate(.float, repeatForever: true)` |
+| ✨ Glow | `.animate(.glow, repeatForever: true)` |
+| 🌬️ Breathe | `.animate(.breathe, repeatForever: true)` |
 
-## Advanced Usage
+---
+
+## ⚡ Advanced Usage
 
 ### Chained Animations
 
@@ -194,32 +199,20 @@ Button("Tap")
     .animate(.bounce, spring: .bouncy(duration: 0.6, extraBounce: 0.2))
 ```
 
-### Repeat Animations
+### Repeat & Infinite
 
 ```swift
-Circle()
-    .animate(.pulse, repeatCount: 3)
+// Repeat 3 times
+Circle().animate(.pulse, repeatCount: 3)
 
-// Or infinite
-Circle()
-    .animate(.glow, repeatForever: true)
+// Infinite
+Circle().animate(.glow, repeatForever: true)
 ```
 
-### Conditional Animations
+### Accessibility
 
 ```swift
-@State private var isLoading = false
-
-ProgressView()
-    .animate(.spin, when: isLoading)
-```
-
-### Accessibility Support
-
-Animations automatically respect the user's "Reduce Motion" preference:
-
-```swift
-// Automatically disabled when reduce motion is on
+// Automatically respects reduce motion
 Button("Submit")
     .animate(.bounce)
 
@@ -228,155 +221,63 @@ Button("Submit")
     .animate(.bounce, reducedMotionBehavior: .fade)
 ```
 
-## Performance
+---
 
-SwiftUI Animation Masterclass is optimized for performance:
+## 📁 Project Structure
+
+```
+SwiftUI-Animation-Masterclass/
+├── 📂 Sources/
+│   ├── Core/                    # Animation engine
+│   ├── Animations/              # 50+ animation types
+│   ├── Modifiers/               # View modifiers
+│   └── Utilities/               # Helpers & extensions
+├── 📂 Examples/                 # Sample projects
+├── 📂 Tests/                    # Unit & UI tests
+└── 📂 Documentation/            # Guides
+```
+
+---
+
+## 📋 Requirements
+
+| Requirement | Version |
+|-------------|---------|
+| iOS | 17.0+ |
+| macOS | 14.0+ |
+| watchOS | 10.0+ |
+| tvOS | 17.0+ |
+| visionOS | 1.0+ |
+| Swift | 6.0+ |
+| Xcode | 16.0+ |
+
+---
+
+## 📊 Performance
 
 | Metric | Value |
 |--------|-------|
 | Memory Overhead | < 1KB per animation |
-| CPU Impact | Minimal (uses Core Animation) |
+| CPU Impact | Minimal (Core Animation) |
 | Battery | Optimized for 60fps |
-| Startup Time | Zero impact |
+| Bundle Size | ~50KB |
 
-### Benchmarks
+---
 
-```
-Animation Start: 0.001ms
-Animation Render: 16.6ms (60fps)
-Memory: 0.8KB average
-```
+## 📖 Documentation
 
-## SwiftUI Integration
+| Guide | Description |
+|-------|-------------|
+| [Getting Started](Documentation/GettingStarted.md) | Installation and basics |
+| [Animation Guide](Documentation/AnimationGuide.md) | Complete animation catalog |
+| [Advanced Usage](Documentation/AdvancedUsage.md) | Chaining, customization |
+| [Best Practices](Documentation/BestPractices.md) | Performance tips |
 
-### With Buttons
+---
 
-```swift
-Button(action: submit) {
-    Text("Submit")
-        .animate(.bounce, trigger: submitted)
-}
-```
+## 🤝 Contributing
 
-### With Lists
-
-```swift
-List(items) { item in
-    ItemRow(item: item)
-        .animate(.slideIn(from: .trailing))
-        .animation(.default.delay(Double(item.index) * 0.1))
-}
-```
-
-### With Navigation
-
-```swift
-NavigationStack {
-    ContentView()
-        .animate(.fadeIn)
-        .navigationTransition(.zoom)
-}
-```
-
-### With Sheets
-
-```swift
-.sheet(isPresented: $showSheet) {
-    SheetContent()
-        .animate(.slideIn(from: .bottom))
-}
-```
-
-## API Reference
-
-### AnimationType
-
-```swift
-public enum AnimationType {
-    // Attention
-    case bounce, shake, pulse, wobble, swing
-    case heartbeat, rubberBand, flash, jello, tada
-    
-    // Entrances
-    case fadeIn, slideIn(from: Edge), zoomIn
-    case flipIn, dropIn, rollIn, bounceIn
-    
-    // Exits
-    case fadeOut, slideOut(to: Edge), zoomOut
-    case flipOut, hinge
-    
-    // Morphs
-    case morph(to: AnyShape), liquid, elastic
-    
-    // Continuous
-    case spin, float, glow, breathe
-}
-```
-
-### View Modifier
-
-```swift
-extension View {
-    func animate(
-        _ type: AnimationType,
-        trigger: Bool = false,
-        duration: Double = 0.6,
-        delay: Double = 0,
-        spring: Spring = .smooth,
-        repeatCount: Int = 1,
-        repeatForever: Bool = false,
-        reducedMotionBehavior: ReducedMotionBehavior = .disable
-    ) -> some View
-}
-```
-
-## Examples
-
-Check out the [Examples](Examples/) folder for complete sample projects:
-
-- **BasicAnimations** - Getting started with simple animations
-- **AnimationCatalog** - Interactive catalog of all animations
-- **RealWorldApp** - Production patterns and best practices
-- **PerformanceDemo** - Benchmarks and optimization tips
-
-## Migration Guide
-
-### From animate.css
-
-```swift
-// animate.css
-className="animate__animated animate__bounce"
-
-// SwiftUI Animation Masterclass
-.animate(.bounce)
-```
-
-### From Lottie
-
-```swift
-// Lottie
-LottieView(name: "loading")
-
-// SwiftUI Animation Masterclass (smaller bundle, native)
-ProgressView()
-    .animate(.spin, repeatForever: true)
-```
-
-## Comparison
-
-| Feature | Animation Masterclass | Lottie | animate.css |
-|---------|----------------------|--------|-------------|
-| Bundle Size | 50KB | 500KB+ | 80KB |
-| Platform | Native SwiftUI | Cross-platform | Web |
-| Customization | Full | Limited | CSS |
-| Performance | Excellent | Good | N/A |
-| Accessibility | Built-in | Manual | Manual |
-
-## Contributing
-
-We love contributions! Please read our [Contributing Guide](CONTRIBUTING.md) before submitting a PR.
-
-### Development Setup
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md).
 
 ```bash
 git clone https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass.git
@@ -384,38 +285,25 @@ cd SwiftUI-Animation-Masterclass
 open Package.swift
 ```
 
-### Running Tests
+---
 
-```bash
-swift test
-```
+## 📄 License
 
-## Roadmap
-
-- [x] Core animation library
-- [x] 50+ built-in animations
-- [x] Accessibility support
-- [x] Documentation
-- [ ] Animation builder UI
-- [ ] Keyframe editor
-- [ ] visionOS spatial animations
-- [ ] Animation presets marketplace
-
-## License
-
-SwiftUI Animation Masterclass is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
-
-## Acknowledgments
-
-- Inspired by [animate.css](https://animate.style/)
-- Built with ❤️ for the SwiftUI community
+MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-<p align="center">
-  <sub>Built with ❤️ by <a href="https://github.com/muhittincamdali">Muhittin Camdali</a></sub>
-</p>
+<div align="center">
 
-<p align="center">
-  <a href="https://github.com/muhittincamdali/SwiftUI-Animation-Masterclass/stargazers">⭐ Star us on GitHub</a>
-</p>
+## 👨‍💻 Author
+
+**Muhittin Camdali**
+
+[![GitHub](https://img.shields.io/badge/GitHub-muhittincamdali-181717?style=for-the-badge&logo=github)](https://github.com/muhittincamdali)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/muhittincamdali)
+
+---
+
+**⭐ Star this repo if you find it useful!**
+
+</div>
