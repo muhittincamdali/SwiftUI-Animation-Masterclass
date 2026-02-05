@@ -6,57 +6,45 @@ import PackageDescription
 let package = Package(
     name: "SwiftUIAnimationMasterclass",
     platforms: [
-        .iOS(.v15),
-        .macOS(.v12),
-        .tvOS(.v15),
-        .watchOS(.v8)
+        .iOS(.v17),
+        .macOS(.v14),
+        .tvOS(.v17),
+        .watchOS(.v10),
+        .visionOS(.v1)
     ],
     products: [
         .library(
             name: "SwiftUIAnimationMasterclass",
             targets: ["SwiftUIAnimationMasterclass"]
-        ),
-        .library(
-            name: "AnimationComponents",
-            targets: ["AnimationComponents"]
-        ),
-        .library(
-            name: "AnimationUtilities",
-            targets: ["AnimationUtilities"]
         )
-    ],
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-collections.git", from: "1.0.0"),
-        .package(url: "https://github.com/apple/swift-algorithms.git", from: "1.0.0")
     ],
     targets: [
         .target(
             name: "SwiftUIAnimationMasterclass",
-            dependencies: [
-                "AnimationComponents",
-                "AnimationUtilities",
-                .product(name: "Collections", package: "swift-collections"),
-                .product(name: "Algorithms", package: "swift-algorithms")
-            ],
-            path: "Sources/Animation"
-        ),
-        .target(
-            name: "AnimationComponents",
-            dependencies: ["AnimationUtilities"],
-            path: "Sources/Components"
-        ),
-        .target(
-            name: "AnimationUtilities",
-            path: "Sources/Utilities"
+            dependencies: [],
+            path: "Sources",
+            exclude: ["Core/MainFramework.swift"],
+            sources: [
+                "SwiftUIAnimationMasterclass/SwiftUIAnimationMasterclass.swift",
+                "Animations/AnimationType.swift",
+                "Animations/AnimationModifier.swift",
+                "Transitions/TransitionPresets.swift",
+                "Loading/LoadingAnimations.swift",
+                "MicroInteractions/MicroInteractions.swift",
+                "PageTransitions/PageTransitions.swift",
+                "Physics/PhysicsAnimations.swift",
+                "Keyframes/KeyframeAnimations.swift",
+                "Path/PathAnimations.swift",
+                "3D/Transform3D.swift",
+                "Particles/ParticleEffects.swift",
+                "Animation/AnimationEngine.swift"
+            ]
         ),
         .testTarget(
             name: "SwiftUIAnimationMasterclassTests",
-            dependencies: [
-                "SwiftUIAnimationMasterclass",
-                "AnimationComponents",
-                "AnimationUtilities"
-            ],
+            dependencies: ["SwiftUIAnimationMasterclass"],
             path: "Tests"
         )
-    ]
-) 
+    ],
+    swiftLanguageVersions: [.v5]
+)
