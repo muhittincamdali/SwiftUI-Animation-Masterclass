@@ -6,6 +6,8 @@
 
 ---
 
+## 🚀 Killer Feature: Scroll-Driven Animation Engine
+Tie animations directly to scroll offsets. Our high-performance `ScrollDrivenAnimator` intercepts coordinate spaces to trigger parallax, scaling, and morphing effects without triggering main thread hitches.
 > **🛡️ PART OF THE 2026 UNIFIED CORE**
 > This repository is a verified component of 'The Endless March' initiative. Purified for Swift 6, zero-dependency, and engineered for maximum hardware saturation.
 > 
