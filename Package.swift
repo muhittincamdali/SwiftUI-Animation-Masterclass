@@ -14,6 +14,10 @@ let package = Package(
         .target(
             name: "SwiftUIAnimationMasterclass",
             path: "Sources/SwiftUIAnimationMasterclass"
+        ),
+        .testTarget(
+            name: "SwiftUIAnimationMasterclassTests",
+            dependencies: ["SwiftUIAnimationMasterclass"]
         )
     ]
 )
