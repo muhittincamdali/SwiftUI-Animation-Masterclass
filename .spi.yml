@@ -1,0 +1,7 @@
+version: 1
+builder:
+  configs:
+    - platform: ios
+      scheme: SwiftUIAnimationMasterclass
+      documentation_targets: [SwiftUIAnimationMasterclass]
+    - platform: macos-spm
