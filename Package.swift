@@ -1,28 +1,19 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.2
 import PackageDescription
 
 let package = Package(
     name: "SwiftUIAnimationMasterclass",
     platforms: [
         .iOS(.v17),
-        .macOS(.v14),
-        .tvOS(.v17),
-        .visionOS(.v1)
+        .macOS(.v14)
     ],
     products: [
-        .library(name: "SwiftUIAnimationMasterclass", targets: ["SwiftUIAnimationMasterclass"]),
+        .library(name: "SwiftUIAnimationMasterclass", targets: ["SwiftUIAnimationMasterclass"])
     ],
     targets: [
         .target(
             name: "SwiftUIAnimationMasterclass",
-            path: "Sources/SwiftUIAnimationMasterclass",
-            swiftSettings: [
-                .enableExperimentalFeature("StrictConcurrency")
-            ]
-        ),
-        .testTarget(
-            name: "SwiftUIAnimationMasterclassTests",
-            dependencies: ["SwiftUIAnimationMasterclass"]
+            path: "Sources/SwiftUIAnimationMasterclass"
         )
     ]
 )
