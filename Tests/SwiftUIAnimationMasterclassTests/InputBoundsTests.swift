@@ -168,6 +168,29 @@ struct InputBoundsTests {
         }
     }
 
+    @Test func dragModifiersRejectValuesThatWouldBreakTheFirstDrag() async {
+        // Without these checks the modifiers were created and the process trapped, or the view
+        // got NaN offsets, only once the user started dragging.
+        await #expect(processExitsWith: .failure) {
+            _ = SnapDragModifier(axis: .vertical, offsets: [.nan, 0], selection: .constant(0), decay: .normal, spring: .snappy)
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = SnapDragModifier(axis: .horizontal, offsets: [0, .infinity], selection: .constant(0), decay: .normal, spring: .snappy)
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = ElasticDragModifier(axes: .vertical, resistance: 0, spring: .bouncy)
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = ElasticDragModifier(axes: .vertical, resistance: -240, spring: .bouncy)
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = ElasticDragModifier(axes: .vertical, resistance: .nan, spring: .bouncy)
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = ElasticDragModifier(axes: .vertical, resistance: .infinity, spring: .bouncy)
+        }
+    }
+
     @Test func physicsConstantsSetAfterCreationFollowTheInitializerRules() async {
         await #expect(processExitsWith: .failure) {
             var spring = DampedSpring.bouncy

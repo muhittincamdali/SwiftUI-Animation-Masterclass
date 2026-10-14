@@ -14,8 +14,8 @@ public extension View {
     ///
     /// - Parameters:
     ///   - axes: Directions the view can be pulled in.
-    ///   - resistance: Distance the view approaches but never reaches, in points. Smaller
-    ///     values feel stiffer.
+    ///   - resistance: Distance the view approaches but never reaches, in points; finite and
+    ///     greater than zero. Smaller values feel stiffer.
     ///   - spring: Spring that brings the view back.
     func elasticDrag(
         axes: Axis.Set = [.horizontal, .vertical],
@@ -72,6 +72,15 @@ struct ElasticDragModifier: ViewModifier {
 
     @State private var offset: CGSize = .zero
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    nonisolated init(axes: Axis.Set, resistance: CGFloat, spring: DampedSpring) {
+        // Checked here so a bad value stops at the call site, not on the first drag: zero, a
+        // negative value or NaN trips RubberBand's precondition, and infinity gives NaN offsets.
+        precondition(resistance.isFinite && resistance > 0, "elasticDrag resistance must be finite and greater than zero")
+        self.axes = axes
+        self.resistance = resistance
+        self.spring = spring
+    }
 
     func body(content: Content) -> some View {
         content

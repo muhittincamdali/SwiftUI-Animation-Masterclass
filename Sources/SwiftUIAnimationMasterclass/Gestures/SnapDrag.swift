@@ -20,7 +20,7 @@ public extension View {
     ///
     /// - Parameters:
     ///   - axis: Direction of the drag.
-    ///   - offsets: Resting offsets in points, at least one.
+    ///   - offsets: Resting offsets in points, at least one, all finite.
     ///   - selection: Index in `offsets` of the current resting offset.
     ///   - decay: How far a flick carries the view before the nearest offset is chosen.
     ///   - spring: Spring that settles the view on its offset.
@@ -46,8 +46,11 @@ struct SnapDragModifier: ViewModifier {
     @State private var dragStart: CGFloat?
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
-    init(axis: Axis, offsets: [CGFloat], selection: Binding<Int>, decay: Decay, spring: DampedSpring) {
+    nonisolated init(axis: Axis, offsets: [CGFloat], selection: Binding<Int>, decay: Decay, spring: DampedSpring) {
         precondition(!offsets.isEmpty, "snapDrag needs at least one offset")
+        // A NaN offset would make the drag range NaN...NaN, which traps on the first drag
+        // instead of here; an infinite one would move the view out of sight.
+        precondition(offsets.allSatisfy(\.isFinite), "snapDrag offsets must be finite")
         self.axis = axis
         self.offsets = offsets
         _selection = selection
