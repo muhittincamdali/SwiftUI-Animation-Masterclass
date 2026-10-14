@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@62c98af62b79b6ced607674090d5935e44c1ed97 status=reviewed -->
+<!-- i18n-source: README.md@94b97a975e1661e3e71258990ab1da5129f7bc04 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-ko-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-ko-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-ko-light.svg" alt="Animation Masterclass: iOS와 macOS의 SwiftUI를 위한 물리 기반 모션, 파티클, 변화 효과와 전환."></picture></p>
@@ -34,7 +34,7 @@ iOS 17+와 macOS 14+의 SwiftUI를 위한 모션 Swift 패키지입니다. 물�
 - **하나의 Canvas로 그리는 파티클** — 프리셋 8개, 힘 5개, 모양 7개(SF Symbols와 emoji 포함)를 하나의 `Canvas`로 그립니다. 시드를 쓰는 시뮬레이션은 같은 시드에서 같은 프레임을 만들며, 파티클은 10,000개를 넘지 않습니다.
 - **변화 효과와 전환** — 값이 바뀔 때 재생되는 shake, jump, spin, pulse, ping, shine 효과와, iOS 17 `Transition` 프로토콜 기반의 iris, wipe, flip, pop 전환.
 - **동작 줄이기 지원** — 이 설정이 켜져 있으면 파티클을 그리지 않고, 변화 효과를 재생하지 않으며, 전환은 페이드로 바뀌고, 드래그는 짧은 ease-out으로 멈춥니다.
-- **테스트 완료, Swift 6** — macOS와 iPhone 시뮬레이터에서 Swift Testing 테스트 63개를 실행하며, NaN, 무한대, 범위를 벗어난 입력도 포함합니다. 패키지는 Swift 6 언어 모드로 빌드됩니다.
+- **테스트 완료, Swift 6** — macOS에서 Swift Testing 테스트 70개를 실행하고 그중 66개는 iPhone 시뮬레이터에서도 실행하며, NaN, 무한대, 범위를 벗어난 입력도 포함합니다. 패키지는 Swift 6 언어 모드로 빌드됩니다.
 
 ### 포함된 기능
 

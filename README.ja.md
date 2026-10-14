@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@62c98af62b79b6ced607674090d5935e44c1ed97 status=reviewed -->
+<!-- i18n-source: README.md@94b97a975e1661e3e71258990ab1da5129f7bc04 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-ja-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-ja-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-ja-light.svg" alt="Animation Masterclass: iOS と macOS の SwiftUI 向け、物理ベースのモーション、パーティクル、変化エフェクト、トランジション。"></picture></p>
@@ -34,7 +34,7 @@ iOS 17+ と macOS 14+ の SwiftUI 向けのモーション Swift パッケージ
 - **1 つの Canvas で描くパーティクル** — 8 種類のプリセット、5 種類の力、7 種類の形状（SF Symbols と emoji を含む）を 1 つの `Canvas` で描画します。シード付きのシミュレーションは、同じシードなら同じフレームを生成し、パーティクルが 10,000 個を超えることはありません。
 - **変化エフェクトとトランジション** — 値が変わったときに再生される shake、jump、spin、pulse、ping、shine と、iOS 17 の `Transition` プロトコルに基づく iris、wipe、flip、pop トランジション。
 - **視差効果を減らす設定に対応** — この設定がオンのときは、パーティクルは描画されず、変化エフェクトは再生されず、トランジションはフェードになり、ドラッグは短い ease-out で落ち着きます。
-- **テスト済み、Swift 6** — macOS と iPhone シミュレータで 63 件の Swift Testing テストを実行します。NaN、無限大、範囲外の入力も含みます。パッケージは Swift 6 言語モードでビルドできます。
+- **テスト済み、Swift 6** — macOS で 70 件の Swift Testing テストを実行し、そのうち 66 件は iPhone シミュレータでも実行します。NaN、無限大、範囲外の入力も含みます。パッケージは Swift 6 言語モードでビルドできます。
 
 ### 収録内容
 

@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@62c98af62b79b6ced607674090d5935e44c1ed97 status=reviewed -->
+<!-- i18n-source: README.md@94b97a975e1661e3e71258990ab1da5129f7bc04 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-fr-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-fr-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-fr-light.svg" alt="Animation Masterclass: Mouvements physiques, particules, effets de changement et transitions pour SwiftUI sur iOS et macOS."></picture></p>
@@ -34,7 +34,7 @@ Un package Swift de mouvement pour SwiftUI sur iOS 17+ et macOS 14+ : ressorts 
 - **Des particules dans un seul Canvas** — 8 préréglages, 5 forces et 7 formes (dont des SF Symbols et des emoji) dessinés par un seul `Canvas`, avec une simulation à graine qui produit les mêmes images pour la même graine et ne garde jamais plus de 10 000 particules.
 - **Effets de changement et transitions** — shake, jump, spin, pulse, ping et shine joués lorsqu’une valeur change, et transitions iris, wipe, flip et pop reposant sur le protocole `Transition` d’iOS 17.
 - **Prise en charge du réglage « Réduire les animations »** — lorsque ce réglage est activé, les particules ne sont pas dessinées, les effets de changement ne sont pas joués, les transitions se fondent et les glissements s’arrêtent avec un court ease-out.
-- **Testé, Swift 6** — 63 tests Swift Testing sur macOS et sur un simulateur d’iPhone, y compris avec des entrées NaN, infinies et hors plage ; le package se compile en mode de langage Swift 6.
+- **Testé, Swift 6** — 70 tests Swift Testing sur macOS, dont 66 également sur un simulateur d’iPhone, y compris avec des entrées NaN, infinies et hors plage ; le package se compile en mode de langage Swift 6.
 
 ### Contenu
 

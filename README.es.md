@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@62c98af62b79b6ced607674090d5935e44c1ed97 status=reviewed -->
+<!-- i18n-source: README.md@94b97a975e1661e3e71258990ab1da5129f7bc04 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-es-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-es-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-es-light.svg" alt="Animation Masterclass: Movimiento basado en física, partículas, efectos de cambio y transiciones para SwiftUI en iOS y macOS."></picture></p>
@@ -34,7 +34,7 @@ Un paquete de Swift con movimiento para SwiftUI en iOS 17+ y macOS 14+: muelles 
 - **Partículas en un único Canvas** — 8 ajustes preestablecidos, 5 fuerzas y 7 formas (incluidos SF Symbols y emoji) dibujados con un solo `Canvas`, con una simulación con semilla que genera los mismos fotogramas para la misma semilla y que nunca mantiene más de 10 000 partículas.
 - **Efectos de cambio y transiciones** — shake, jump, spin, pulse, ping y shine que se reproducen cuando cambia un valor, y transiciones iris, wipe, flip y pop sobre el protocolo `Transition` de iOS 17.
 - **Compatible con Reducir movimiento** — con este ajuste activado no se dibujan partículas, los efectos de cambio no se reproducen, las transiciones se desvanecen y los arrastres se detienen con un ease-out breve.
-- **Probado, Swift 6** — 63 pruebas de Swift Testing en macOS y en un simulador de iPhone, incluidas entradas NaN, infinitas y fuera de rango; el paquete compila en el modo de lenguaje de Swift 6.
+- **Probado, Swift 6** — 70 pruebas de Swift Testing en macOS, 66 de ellas también en un simulador de iPhone, incluidas entradas NaN, infinitas y fuera de rango; el paquete compila en el modo de lenguaje de Swift 6.
 
 ### Qué incluye
 

@@ -44,8 +44,9 @@ type, and the package has no dependencies.
   value changes, and iris, wipe, flip and pop transitions on the iOS 17 `Transition` protocol.
 - **Reduce Motion handled** — particles are not drawn, change effects do not play, transitions
   fade and drags settle with a short ease-out when the setting is on.
-- **Tested, Swift 6** — 63 Swift Testing tests on macOS and an iPhone simulator, including
-  NaN, infinite and out-of-range inputs; the package builds in the Swift 6 language mode.
+- **Tested, Swift 6** — 70 Swift Testing tests on macOS, 66 of them also on an iPhone
+  simulator, including NaN, infinite and out-of-range inputs; the package builds in the Swift 6
+  language mode.
 
 ### What's included
 

@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@62c98af62b79b6ced607674090d5935e44c1ed97 status=reviewed -->
+<!-- i18n-source: README.md@94b97a975e1661e3e71258990ab1da5129f7bc04 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-tr-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-tr-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-tr-light.svg" alt="Animation Masterclass: iOS ve macOS'ta SwiftUI için fizik tabanlı hareket, parçacıklar, değişim efektleri ve geçişler."></picture></p>
@@ -49,8 +49,9 @@ bağımlılığı yoktur.
   geçişleri.
 - **Hareketi Azalt ayarına uyum** — ayar açıkken parçacıklar çizilmez, değişim efektleri oynamaz,
   geçişler solarak gerçekleşir ve sürüklemeler kısa bir ease-out ile durur.
-- **Testli, Swift 6** — macOS'ta ve bir iPhone simülatöründe 63 Swift Testing testi; NaN,
-  sonsuz ve aralık dışı girdiler de buna dahil. Paket Swift 6 dil modunda derlenir.
+- **Testli, Swift 6** — macOS'ta 70 Swift Testing testi, bunların 66'sı bir iPhone
+  simülatöründe de çalışır; NaN, sonsuz ve aralık dışı girdiler testlere dahil. Paket Swift 6
+  dil modunda derlenir.
 
 ### Pakette neler var
 

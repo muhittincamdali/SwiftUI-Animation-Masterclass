@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@62c98af62b79b6ced607674090d5935e44c1ed97 status=reviewed -->
+<!-- i18n-source: README.md@94b97a975e1661e3e71258990ab1da5129f7bc04 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-ru-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-ru-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-ru-light.svg" alt="Animation Masterclass: Физическая анимация, частицы, эффекты изменений и переходы для SwiftUI на iOS и macOS."></picture></p>
@@ -34,7 +34,7 @@ Swift-пакет с анимацией для SwiftUI на iOS 17+ и macOS 14+:
 - **Частицы в одном Canvas** — 8 пресетов, 5 сил и 7 форм (включая SF Symbols и emoji), которые рисует один `Canvas`; симуляция с seed даёт одинаковые кадры при одинаковом seed и никогда не держит больше 10 000 частиц.
 - **Эффекты изменений и переходы** — shake, jump, spin, pulse, ping и shine, которые проигрываются при изменении значения, а также переходы iris, wipe, flip и pop на основе протокола `Transition` из iOS 17.
 - **Учитывается «Уменьшение движения»** — когда эта настройка включена, частицы не рисуются, эффекты изменений не проигрываются, переходы заменяются плавным появлением, а перетаскивание завершается коротким ease-out.
-- **Протестировано, Swift 6** — 63 теста Swift Testing на macOS и в симуляторе iPhone, включая NaN, бесконечные значения и значения вне диапазона; пакет собирается в языковом режиме Swift 6.
+- **Протестировано, Swift 6** — 70 тестов Swift Testing на macOS, 66 из них также в симуляторе iPhone, включая NaN, бесконечные значения и значения вне диапазона; пакет собирается в языковом режиме Swift 6.
 
 ### Что входит в пакет
 

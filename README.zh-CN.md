@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@62c98af62b79b6ced607674090d5935e44c1ed97 status=reviewed -->
+<!-- i18n-source: README.md@94b97a975e1661e3e71258990ab1da5129f7bc04 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-zh-CN-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-zh-CN-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-zh-CN-light.svg" alt="Animation Masterclass: 适用于 iOS 和 macOS 上 SwiftUI 的物理动效、粒子、变化效果和转场。"></picture></p>
@@ -34,7 +34,7 @@
 - **单个 Canvas 中的粒子** — 8 种预设、5 种力和 7 种形状（包括 SF Symbols 和 emoji），全部由一个 `Canvas` 绘制；带种子的模拟在种子相同时生成相同的帧，且粒子数量永远不会超过 10,000。
 - **变化效果与转场** — 值变化时播放的 shake、jump、spin、pulse、ping 和 shine 效果，以及基于 iOS 17 `Transition` 协议的 iris、wipe、flip 和 pop 转场。
 - **支持“减弱动态效果”** — 该设置开启时，不绘制粒子，不播放变化效果，转场改为淡入淡出，拖动则以简短的 ease-out 收尾。
-- **经过测试，Swift 6** — 在 macOS 和 iPhone 模拟器上运行 63 个 Swift Testing 测试，其中包括 NaN、无穷大和越界输入；该包可在 Swift 6 语言模式下构建。
+- **经过测试，Swift 6** — 在 macOS 上运行 70 个 Swift Testing 测试（其中 66 个也在 iPhone 模拟器上运行），覆盖 NaN、无穷大和越界输入；该包可在 Swift 6 语言模式下构建。
 
 ### 内容一览
 

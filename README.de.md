@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@62c98af62b79b6ced607674090d5935e44c1ed97 status=reviewed -->
+<!-- i18n-source: README.md@94b97a975e1661e3e71258990ab1da5129f7bc04 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-de-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-de-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-de-light.svg" alt="Animation Masterclass: Physikbasierte Bewegung, Partikel, Änderungseffekte und Übergänge für SwiftUI auf iOS und macOS."></picture></p>
@@ -34,7 +34,7 @@ Ein Swift-Paket für Bewegung in SwiftUI auf iOS 17+ und macOS 14+: physikbasier
 - **Partikel in einem einzigen Canvas** — 8 Presets, 5 Kräfte und 7 Formen (einschließlich SF Symbols und Emoji), gezeichnet von einem `Canvas`. Die Simulation mit Seed liefert bei gleichem Seed dieselben Frames und hält nie mehr als 10.000 Partikel.
 - **Änderungseffekte und Übergänge** — shake, jump, spin, pulse, ping und shine, die beim Ändern eines Werts abgespielt werden, sowie die Übergänge iris, wipe, flip und pop auf Basis des `Transition`-Protokolls von iOS 17.
 - **Bewegung reduzieren wird beachtet** — Ist die Einstellung aktiv, werden keine Partikel gezeichnet, Änderungseffekte nicht abgespielt, Übergänge blenden über und Drag-Gesten kommen mit einem kurzen Ease-out zur Ruhe.
-- **Getestet, Swift 6** — 63 Swift-Testing-Tests auf macOS und in einem iPhone-Simulator, auch mit NaN, unendlichen und außerhalb des Bereichs liegenden Eingaben; das Paket baut im Swift-6-Sprachmodus.
+- **Getestet, Swift 6** — 70 Swift-Testing-Tests auf macOS, davon 66 auch in einem iPhone-Simulator, auch mit NaN, unendlichen und außerhalb des Bereichs liegenden Eingaben; das Paket baut im Swift-6-Sprachmodus.
 
 ### Lieferumfang
 

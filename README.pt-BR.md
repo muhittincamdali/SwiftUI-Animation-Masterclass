@@ -1,4 +1,4 @@
-<!-- i18n-source: README.md@62c98af62b79b6ced607674090d5935e44c1ed97 status=reviewed -->
+<!-- i18n-source: README.md@94b97a975e1661e3e71258990ab1da5129f7bc04 status=reviewed -->
 <!-- brand:start -->
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-pt-BR-dark.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-pt-BR-light.svg"><img src="https://raw.githubusercontent.com/muhittincamdali/SwiftUI-Animation-Masterclass/main/.github/brand/banner-pt-BR-light.svg" alt="Animation Masterclass: Movimento baseado em física, partículas, efeitos de mudança e transições para SwiftUI no iOS e macOS."></picture></p>
@@ -34,7 +34,7 @@ Um pacote Swift de movimento para SwiftUI no iOS 17+ e no macOS 14+: molas basea
 - **Partículas em um único Canvas** — 8 predefinições, 5 forças e 7 formas (incluindo SF Symbols e emoji) desenhadas por um só `Canvas`, com uma simulação com semente que gera os mesmos quadros para a mesma semente e nunca mantém mais de 10.000 partículas.
 - **Efeitos de mudança e transições** — shake, jump, spin, pulse, ping e shine reproduzidos quando um valor muda, e transições iris, wipe, flip e pop sobre o protocolo `Transition` do iOS 17.
 - **Suporte a Reduzir Movimento** — com essa configuração ativada, as partículas não são desenhadas, os efeitos de mudança não são reproduzidos, as transições viram um fade e os arrastos terminam com um ease-out curto.
-- **Testado, Swift 6** — 63 testes do Swift Testing no macOS e em um simulador de iPhone, incluindo entradas NaN, infinitas e fora do intervalo; o pacote compila no modo de linguagem do Swift 6.
+- **Testado, Swift 6** — 70 testes do Swift Testing no macOS, 66 deles também em um simulador de iPhone, incluindo entradas NaN, infinitas e fora do intervalo; o pacote compila no modo de linguagem do Swift 6.
 
 ### O que está incluído
 
