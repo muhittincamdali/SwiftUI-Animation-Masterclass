@@ -65,6 +65,9 @@ this package rather than copied.
 - `DampedSpring.mass`, `stiffness` and `damping`, `Decay.decelerationRate` and
   `GravityBounce.gravity` check the initializer's rules when they are set, instead of letting
   an invalid value produce NaN or infinite results later.
+- `DampedSpring`'s mass, stiffness and damping, `GravityBounce.gravity` and `RubberBand`'s
+  dimension and coefficient must be finite, in the initializers and when set, since an
+  infinite value passed the greater-than-zero checks and produced NaN.
 - `.snapDrag(_:offsets:selection:decay:spring:)` requires finite offsets and
   `.elasticDrag(axes:resistance:spring:)` a finite resistance greater than zero, checked when
   the modifier is created instead of trapping or producing NaN offsets on the first drag.

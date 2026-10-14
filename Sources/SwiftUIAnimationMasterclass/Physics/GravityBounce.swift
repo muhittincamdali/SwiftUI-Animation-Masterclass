@@ -15,12 +15,12 @@ import Foundation
 ///
 /// To animate a SwiftUI value this way, use ``SwiftUICore/Animation/gravityBounce(fallDuration:restitution:)``.
 public struct GravityBounce: Hashable, Sendable {
-    /// Acceleration toward the floor, in units per second squared, greater than zero.
+    /// Acceleration toward the floor, in units per second squared, finite and greater than zero.
     ///
     /// Setting it checks the same rule as the initializer: every time in the motion is divided
     /// by the gravity.
     public var gravity: Double {
-        didSet { precondition(gravity > 0, "gravity must be greater than zero") }
+        didSet { precondition(gravity.isFinite && gravity > 0, "gravity must be finite and greater than zero") }
     }
     /// Share of the speed kept at each impact, from 0 (no bounce) to 1 (exclusive).
     public var restitution: Double
@@ -36,12 +36,12 @@ public struct GravityBounce: Hashable, Sendable {
     /// Creates a bouncing fall.
     ///
     /// - Parameters:
-    ///   - gravity: Acceleration in units per second squared, greater than zero.
+    ///   - gravity: Acceleration in units per second squared, finite and greater than zero.
     ///   - restitution: Share of the speed kept at each impact, `0..<1`.
     ///   - minimumBounceSpeed: Bounces slower than this are skipped.
     ///   - maximumBounces: Upper limit on the number of bounces.
     public init(gravity: Double, restitution: Double, minimumBounceSpeed: Double = 1, maximumBounces: Int = 12) {
-        precondition(gravity > 0, "gravity must be greater than zero")
+        precondition(gravity.isFinite && gravity > 0, "gravity must be finite and greater than zero")
         precondition(restitution >= 0 && restitution < 1, "restitution must be in 0..<1")
         precondition(maximumBounces >= 0, "maximumBounces must not be negative")
         self.gravity = gravity

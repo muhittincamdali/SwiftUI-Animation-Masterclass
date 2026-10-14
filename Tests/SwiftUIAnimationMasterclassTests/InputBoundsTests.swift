@@ -213,6 +213,47 @@ struct InputBoundsTests {
             drop.gravity = 0
         }
     }
+
+    @Test func infiniteConstantsAreRejected() async {
+        // `> 0` alone accepts infinity, which turns spring and bounce results into NaN.
+        await #expect(processExitsWith: .failure) {
+            _ = DampedSpring(mass: .infinity, stiffness: 100, damping: 10)
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = DampedSpring(stiffness: .infinity, damping: 10)
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = DampedSpring(stiffness: 100, damping: .infinity)
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = DampedSpring(response: 0.4, dampingRatio: .infinity)
+        }
+        await #expect(processExitsWith: .failure) {
+            var spring = DampedSpring.bouncy
+            spring.mass = .infinity
+        }
+        await #expect(processExitsWith: .failure) {
+            var spring = DampedSpring.bouncy
+            spring.stiffness = .infinity
+        }
+        await #expect(processExitsWith: .failure) {
+            var spring = DampedSpring.bouncy
+            spring.damping = .infinity
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = GravityBounce(gravity: .infinity, restitution: 0.5)
+        }
+        await #expect(processExitsWith: .failure) {
+            var drop = GravityBounce(gravity: 1000, restitution: 0.5)
+            drop.gravity = .infinity
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = RubberBand.offset(10, dimension: .infinity)
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = RubberBand.offset(0, dimension: 200, coefficient: .infinity)
+        }
+    }
     #endif
 
     @Test func validPhysicsConstantsCanBeSetAfterCreation() {

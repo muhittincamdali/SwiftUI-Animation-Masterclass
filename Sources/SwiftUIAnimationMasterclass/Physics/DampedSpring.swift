@@ -16,32 +16,35 @@ import SwiftUI
 ///
 /// Use ``animation(initialVelocity:)`` to run the same spring as a SwiftUI animation.
 public struct DampedSpring: Hashable, Sendable {
-    // Setting a constant checks the same rule as the initializer: a zero mass or stiffness, or
-    // a negative damping, would turn every result into NaN or infinity.
+    // Setting a constant checks the same rule as the initializer: a zero or infinite mass or
+    // stiffness, or a negative or infinite damping, would turn every result into NaN or infinity.
 
-    /// Mass of the moving object, greater than zero. A heavier object accelerates more slowly.
+    /// Mass of the moving object, finite and greater than zero. A heavier object accelerates
+    /// more slowly.
     public var mass: Double {
-        didSet { precondition(mass > 0, "mass must be greater than zero") }
+        didSet { precondition(mass.isFinite && mass > 0, "mass must be finite and greater than zero") }
     }
-    /// Spring constant, greater than zero: how hard the spring pulls per unit of distance.
+    /// Spring constant, finite and greater than zero: how hard the spring pulls per unit of
+    /// distance.
     public var stiffness: Double {
-        didSet { precondition(stiffness > 0, "stiffness must be greater than zero") }
+        didSet { precondition(stiffness.isFinite && stiffness > 0, "stiffness must be finite and greater than zero") }
     }
-    /// Damping coefficient, zero or more: how much the motion is slowed per unit of speed.
+    /// Damping coefficient, finite and zero or more: how much the motion is slowed per unit of
+    /// speed.
     public var damping: Double {
-        didSet { precondition(damping >= 0, "damping must not be negative") }
+        didSet { precondition(damping.isFinite && damping >= 0, "damping must be finite and not negative") }
     }
 
     /// Creates a spring from its physical constants.
     ///
     /// - Parameters:
-    ///   - mass: Mass of the object, greater than zero.
-    ///   - stiffness: Spring constant, greater than zero.
-    ///   - damping: Damping coefficient, zero or more.
+    ///   - mass: Mass of the object, finite and greater than zero.
+    ///   - stiffness: Spring constant, finite and greater than zero.
+    ///   - damping: Damping coefficient, finite and zero or more.
     public init(mass: Double = 1, stiffness: Double, damping: Double) {
-        precondition(mass > 0, "mass must be greater than zero")
-        precondition(stiffness > 0, "stiffness must be greater than zero")
-        precondition(damping >= 0, "damping must not be negative")
+        precondition(mass.isFinite && mass > 0, "mass must be finite and greater than zero")
+        precondition(stiffness.isFinite && stiffness > 0, "stiffness must be finite and greater than zero")
+        precondition(damping.isFinite && damping >= 0, "damping must be finite and not negative")
         self.mass = mass
         self.stiffness = stiffness
         self.damping = damping

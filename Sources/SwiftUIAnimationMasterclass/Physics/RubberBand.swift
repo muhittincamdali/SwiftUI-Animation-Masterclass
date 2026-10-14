@@ -13,11 +13,13 @@ public enum RubberBand {
     ///
     /// - Parameters:
     ///   - overshoot: Drag distance past the edge; the sign is kept.
-    ///   - dimension: Size of the view along the drag; the result never reaches it.
-    ///   - coefficient: Higher values follow the finger more closely.
+    ///   - dimension: Size of the view along the drag, finite and greater than zero; the result
+    ///     never reaches it.
+    ///   - coefficient: Finite and greater than zero. Higher values follow the finger more closely.
     public static func offset(_ overshoot: Double, dimension: Double, coefficient: Double = defaultCoefficient) -> Double {
-        precondition(dimension > 0, "dimension must be greater than zero")
-        precondition(coefficient > 0, "coefficient must be greater than zero")
+        // An infinite dimension or coefficient gives ∞·0 or 0·∞ in the formula, which is NaN.
+        precondition(dimension.isFinite && dimension > 0, "dimension must be finite and greater than zero")
+        precondition(coefficient.isFinite && coefficient > 0, "coefficient must be finite and greater than zero")
         let magnitude = (1 - 1 / (abs(overshoot) * coefficient / dimension + 1)) * dimension
         return overshoot < 0 ? -magnitude : magnitude
     }
@@ -28,7 +30,7 @@ public enum RubberBand {
     /// - Parameters:
     ///   - value: The unconstrained value, for example a drag translation.
     ///   - range: The values that follow the finger one to one.
-    ///   - dimension: Size of the view along the drag.
+    ///   - dimension: Size of the view along the drag, finite and greater than zero.
     ///   - coefficient: Higher values follow the finger more closely.
     public static func clamp(
         _ value: Double,
