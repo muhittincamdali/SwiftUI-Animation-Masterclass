@@ -43,8 +43,10 @@ remap = [
   '^https://github\.com/muhittincamdali/SwiftUI-Animation-Masterclass/(?:blob|tree)/main/(.*)$ file:///home/runner/work/SwiftUI-Animation-Masterclass/SwiftUI-Animation-Masterclass/$1',
   # The article pages on GitHub Pages are built from the .docc articles by docs.yml after a push
   # to main, so a pull request that adds an article links to a page that is not online yet. Each
-  # article URL is checked against its source file instead; the documentation root stays a live
-  # check, so a site that is down still fails.
+  # article URL, and the documentation root, is checked against its source file instead. The
+  # site itself is verified by the docs workflow, which builds it on every pull request and
+  # deploys it on every push to main.
+  '^https://muhittincamdali\.github\.io/SwiftUI-Animation-Masterclass/documentation/swiftuianimationmasterclass/?$ file:///home/runner/work/SwiftUI-Animation-Masterclass/SwiftUI-Animation-Masterclass/Sources/SwiftUIAnimationMasterclass/SwiftUIAnimationMasterclass.docc/SwiftUIAnimationMasterclass.md',
   '^https://muhittincamdali\.github\.io/SwiftUI-Animation-Masterclass/documentation/swiftuianimationmasterclass/gettingstarted$ file:///home/runner/work/SwiftUI-Animation-Masterclass/SwiftUI-Animation-Masterclass/Sources/SwiftUIAnimationMasterclass/SwiftUIAnimationMasterclass.docc/GettingStarted.md',
   '^https://muhittincamdali\.github\.io/SwiftUI-Animation-Masterclass/documentation/swiftuianimationmasterclass/throwingandsnapping$ file:///home/runner/work/SwiftUI-Animation-Masterclass/SwiftUI-Animation-Masterclass/Sources/SwiftUIAnimationMasterclass/SwiftUIAnimationMasterclass.docc/ThrowingAndSnapping.md',
   '^https://muhittincamdali\.github\.io/SwiftUI-Animation-Masterclass/documentation/swiftuianimationmasterclass/designingparticleeffects$ file:///home/runner/work/SwiftUI-Animation-Masterclass/SwiftUI-Animation-Masterclass/Sources/SwiftUIAnimationMasterclass/SwiftUIAnimationMasterclass.docc/DesigningParticleEffects.md',
