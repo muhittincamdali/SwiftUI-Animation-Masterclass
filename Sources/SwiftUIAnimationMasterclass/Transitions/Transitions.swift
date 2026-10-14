@@ -2,7 +2,7 @@ import SwiftUI
 
 /// Reveals or hides a view through a growing or shrinking circle.
 ///
-/// Use it through ``SwiftUI/Transition/iris(origin:)``. With Reduce Motion on, the view fades
+/// Use it through ``SwiftUICore/Transition/iris(origin:)``. With Reduce Motion on, the view fades
 /// instead.
 public struct IrisTransition: Transition {
     /// Center of the circle, relative to the view.
@@ -43,7 +43,7 @@ public struct IrisTransition: Transition {
 
 /// Reveals a view from one edge to the opposite edge, like a wipe in a slide show.
 ///
-/// Use it through ``SwiftUI/Transition/wipe(from:)``. With Reduce Motion on, the view fades
+/// Use it through ``SwiftUICore/Transition/wipe(from:)``. With Reduce Motion on, the view fades
 /// instead.
 public struct WipeTransition: Transition {
     /// Edge the wipe starts from when the view appears; it leaves toward the same edge.
@@ -85,7 +85,7 @@ public struct WipeTransition: Transition {
 
 /// Turns a view in 3D around one axis, like a card being flipped in or out.
 ///
-/// Use it through ``SwiftUI/Transition/flip(axis:)``. With Reduce Motion on, the view fades
+/// Use it through ``SwiftUICore/Transition/flip(axis:)``. With Reduce Motion on, the view fades
 /// instead.
 public struct FlipTransition: Transition {
     /// Axis the view turns around.
@@ -121,7 +121,7 @@ public struct FlipTransition: Transition {
 
 /// Grows a view from a smaller, blurred, transparent version of itself.
 ///
-/// Use it through ``SwiftUI/Transition/pop``. Pair it with a spring for a small overshoot.
+/// Use it through ``SwiftUICore/Transition/pop``. Pair it with a spring for a small overshoot.
 /// With Reduce Motion on, the view fades instead.
 public struct PopTransition: Transition {
     /// Scale of the view while it is hidden.

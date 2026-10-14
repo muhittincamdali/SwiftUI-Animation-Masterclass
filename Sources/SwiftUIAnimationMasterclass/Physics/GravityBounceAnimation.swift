@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A SwiftUI animation that drops a value onto its target and bounces it there.
 ///
-/// Create it with ``SwiftUI/Animation/gravityBounce(fallDuration:restitution:)``.
+/// Create it with ``SwiftUICore/Animation/gravityBounce(fallDuration:restitution:)``.
 public struct GravityBounceAnimation: CustomAnimation {
     /// Seconds to reach the target the first time.
     public let fallDuration: Double

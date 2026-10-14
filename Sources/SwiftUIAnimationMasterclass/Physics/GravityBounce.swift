@@ -13,7 +13,7 @@ import Foundation
 /// let total = drop.duration(height: 400)
 /// ```
 ///
-/// To animate a SwiftUI value this way, use ``SwiftUI/Animation/gravityBounce(fallDuration:restitution:)``.
+/// To animate a SwiftUI value this way, use ``SwiftUICore/Animation/gravityBounce(fallDuration:restitution:)``.
 public struct GravityBounce: Hashable, Sendable {
     /// Acceleration toward the floor, in units per second squared.
     public var gravity: Double
