@@ -72,6 +72,18 @@ struct DampedSpringTests {
         #expect(undamped.settlingDuration(initialDisplacement: 1, initialVelocity: 0) == .infinity)
     }
 
+    @Test func springStillMovingAfterTheSearchLimitNeverSettles() {
+        // Decays as e^(-t / 2·10⁹): after an hour it is still almost at full swing.
+        let barelyDamped = DampedSpring(stiffness: 100, damping: 1e-9)
+        #expect(barelyDamped.settlingDuration(initialDisplacement: 1, initialVelocity: 0) == .infinity)
+        #expect(abs(barelyDamped.displacement(at: DampedSpring.longestSettlingDuration, initialDisplacement: 1, initialVelocity: 0)) > 0.5)
+
+        // Lightly damped but settling well inside the limit (decay rate ≈ 0.08 per second).
+        let slow = DampedSpring(response: 0.4, dampingRatio: 0.005)
+        let settle = slow.settlingDuration(initialDisplacement: 1, initialVelocity: 0)
+        #expect(settle > 60 && settle < DampedSpring.longestSettlingDuration)
+    }
+
     @Test func relativeVelocityDividesByTheChange() {
         #expect(DampedSpring.relativeVelocity(300, from: 100, to: 0) == -3)
         #expect(DampedSpring.relativeVelocity(300, from: 0, to: 150) == 2)

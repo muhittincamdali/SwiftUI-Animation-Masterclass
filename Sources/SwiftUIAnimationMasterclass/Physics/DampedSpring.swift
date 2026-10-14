@@ -102,8 +102,10 @@ public struct DampedSpring: Hashable, Sendable {
     ///   - initialDisplacement: Start position minus target position.
     ///   - initialVelocity: Velocity at the start, in units per second.
     ///   - tolerance: Distance and speed that count as "at rest".
-    /// - Returns: Seconds, accurate to a millisecond. `0` when the spring starts at rest, and
-    ///   `infinity` for an undamped spring that does not or for a start that is not finite.
+    /// - Returns: Seconds, accurate to a millisecond. `0` when the spring starts at rest.
+    ///   `infinity` for an undamped spring that does not start at rest, for a start that is not
+    ///   finite, and for a spring so lightly damped that it may still be moving after
+    ///   ``longestSettlingDuration``.
     public func settlingDuration(initialDisplacement: Double, initialVelocity: Double, tolerance: Double = 0.001) -> Double {
         precondition(tolerance > 0, "tolerance must be greater than zero")
         guard initialDisplacement.isFinite, initialVelocity.isFinite else { return .infinity }
@@ -112,7 +114,8 @@ public struct DampedSpring: Hashable, Sendable {
             return initialDisplacement == 0 && initialVelocity == 0 ? 0 : .infinity
         }
         let step = 0.001
-        let limit = motion.timeUntilBound(below: tolerance)
+        let limit = motion.timeUntilBound(below: tolerance, searchingUpTo: Self.longestSettlingDuration)
+        guard limit.isFinite else { return .infinity }
         var time = (limit / step).rounded(.up) * step
         // Walk back from a time where the motion is certainly settled to the last moment it was not.
         while time > 0 {
@@ -124,6 +127,11 @@ public struct DampedSpring: Hashable, Sendable {
         }
         return 0
     }
+
+    /// Longest settling time ``settlingDuration(initialDisplacement:initialVelocity:tolerance:)``
+    /// looks for, in seconds. A spring that may still be moving after it reports `infinity`
+    /// rather than a cut-off time.
+    public static let longestSettlingDuration: Double = 3600
 
     /// The spring as a SwiftUI animation.
     ///
@@ -235,11 +243,13 @@ private struct Solution {
         abs(displacement(at: time)) < tolerance && abs(velocity(at: time)) < tolerance
     }
 
-    /// A time after which both |x| and |v| are guaranteed to stay below `tolerance`.
-    func timeUntilBound(below tolerance: Double) -> Double {
+    /// A time after which both |x| and |v| are guaranteed to stay below `tolerance`, or
+    /// `infinity` when no such time is found up to `longestTime`.
+    func timeUntilBound(below tolerance: Double, searchingUpTo longestTime: Double) -> Double {
         var time = 0.125
-        while upperBound(at: time) >= tolerance && time < 3600 {
-            time *= 2
+        while !(upperBound(at: time) < tolerance) {
+            guard time < longestTime else { return .infinity }
+            time = min(time * 2, longestTime)
         }
         return time
     }
