@@ -257,10 +257,12 @@ struct InputBoundsTests {
     #endif
 
     @Test func validPhysicsConstantsCanBeSetAfterCreation() {
+        // The didSet checks must let valid values through (a trap would end this test), and the
+        // motion must then use the new value, as if it had been passed to the initializer.
         var spring = DampedSpring.bouncy
         spring.mass = 2
         spring.stiffness = 300
-        spring.damping = 0
+        spring.damping = 0 // the lowest damping allowed
         #expect(spring == DampedSpring(mass: 2, stiffness: 300, damping: 0))
 
         var decay = Decay.normal
@@ -269,7 +271,9 @@ struct InputBoundsTests {
 
         var drop = GravityBounce(gravity: 1000, restitution: 0.5)
         drop.gravity = 2000
-        #expect(drop.gravity == 2000)
+        // A fall of 100 units under 2000 units/s² lands after √(2·100 / 2000) = √0.1 s.
+        let firstImpact = drop.impactTimes(height: 100).first ?? 0
+        #expect(abs(firstImpact - 0.1.squareRoot()) < 1e-12)
     }
 
     @Test func springsIgnoreNonFiniteStartsAndVelocities() {
