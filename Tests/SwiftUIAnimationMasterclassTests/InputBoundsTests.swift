@@ -167,7 +167,46 @@ struct InputBoundsTests {
             _ = GravityBounceAnimation(fallDuration: .nan, restitution: 0.5)
         }
     }
+
+    @Test func physicsConstantsSetAfterCreationFollowTheInitializerRules() async {
+        await #expect(processExitsWith: .failure) {
+            var spring = DampedSpring.bouncy
+            spring.mass = 0
+        }
+        await #expect(processExitsWith: .failure) {
+            var spring = DampedSpring.bouncy
+            spring.stiffness = .nan
+        }
+        await #expect(processExitsWith: .failure) {
+            var spring = DampedSpring.bouncy
+            spring.damping = -1
+        }
+        await #expect(processExitsWith: .failure) {
+            var decay = Decay.normal
+            decay.decelerationRate = 1
+        }
+        await #expect(processExitsWith: .failure) {
+            var drop = GravityBounce(gravity: 1000, restitution: 0.5)
+            drop.gravity = 0
+        }
+    }
     #endif
+
+    @Test func validPhysicsConstantsCanBeSetAfterCreation() {
+        var spring = DampedSpring.bouncy
+        spring.mass = 2
+        spring.stiffness = 300
+        spring.damping = 0
+        #expect(spring == DampedSpring(mass: 2, stiffness: 300, damping: 0))
+
+        var decay = Decay.normal
+        decay.decelerationRate = 0.99
+        #expect(decay == .fast)
+
+        var drop = GravityBounce(gravity: 1000, restitution: 0.5)
+        drop.gravity = 2000
+        #expect(drop.gravity == 2000)
+    }
 
     @Test func springsIgnoreNonFiniteStartsAndVelocities() {
         let spring = DampedSpring.bouncy

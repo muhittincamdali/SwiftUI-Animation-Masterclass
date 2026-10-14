@@ -11,7 +11,12 @@ import Foundation
 /// ```
 public struct Decay: Hashable, Sendable {
     /// Fraction of the velocity kept after each millisecond, between 0 and 1 (exclusive).
-    public var decelerationRate: Double
+    ///
+    /// Setting it checks the same range as the initializer: at 0 or 1 the logarithm in every
+    /// formula is infinite or zero.
+    public var decelerationRate: Double {
+        didSet { precondition(decelerationRate > 0 && decelerationRate < 1, "decelerationRate must be between 0 and 1") }
+    }
 
     /// Creates a decay.
     ///

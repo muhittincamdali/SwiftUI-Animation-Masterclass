@@ -15,8 +15,13 @@ import Foundation
 ///
 /// To animate a SwiftUI value this way, use ``SwiftUICore/Animation/gravityBounce(fallDuration:restitution:)``.
 public struct GravityBounce: Hashable, Sendable {
-    /// Acceleration toward the floor, in units per second squared.
-    public var gravity: Double
+    /// Acceleration toward the floor, in units per second squared, greater than zero.
+    ///
+    /// Setting it checks the same rule as the initializer: every time in the motion is divided
+    /// by the gravity.
+    public var gravity: Double {
+        didSet { precondition(gravity > 0, "gravity must be greater than zero") }
+    }
     /// Share of the speed kept at each impact, from 0 (no bounce) to 1 (exclusive).
     public var restitution: Double
     /// Bounces slower than this, in units per second, are skipped and the object rests.

@@ -62,6 +62,9 @@ this package rather than copied.
   capped at `GravityBounce.bounceLimit` (100), NaN or infinite gesture velocities start
   springs at rest, and `.gravityBounce(fallDuration:restitution:)` rejects fall durations
   that are not finite or whose gravity (2 / T²) would be zero or infinite.
+- `DampedSpring.mass`, `stiffness` and `damping`, `Decay.decelerationRate` and
+  `GravityBounce.gravity` check the initializer's rules when they are set, instead of letting
+  an invalid value produce NaN or infinite results later.
 
 ## [1.0.0] - 2026-02-02
 

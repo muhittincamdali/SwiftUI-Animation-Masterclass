@@ -16,12 +16,21 @@ import SwiftUI
 ///
 /// Use ``animation(initialVelocity:)`` to run the same spring as a SwiftUI animation.
 public struct DampedSpring: Hashable, Sendable {
-    /// Mass of the moving object. A heavier object accelerates more slowly.
-    public var mass: Double
-    /// Spring constant: how hard the spring pulls per unit of distance.
-    public var stiffness: Double
-    /// Damping coefficient: how much the motion is slowed per unit of speed.
-    public var damping: Double
+    // Setting a constant checks the same rule as the initializer: a zero mass or stiffness, or
+    // a negative damping, would turn every result into NaN or infinity.
+
+    /// Mass of the moving object, greater than zero. A heavier object accelerates more slowly.
+    public var mass: Double {
+        didSet { precondition(mass > 0, "mass must be greater than zero") }
+    }
+    /// Spring constant, greater than zero: how hard the spring pulls per unit of distance.
+    public var stiffness: Double {
+        didSet { precondition(stiffness > 0, "stiffness must be greater than zero") }
+    }
+    /// Damping coefficient, zero or more: how much the motion is slowed per unit of speed.
+    public var damping: Double {
+        didSet { precondition(damping >= 0, "damping must not be negative") }
+    }
 
     /// Creates a spring from its physical constants.
     ///
