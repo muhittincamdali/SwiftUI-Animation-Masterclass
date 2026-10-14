@@ -10,8 +10,7 @@ public struct GravityBounceAnimation: CustomAnimation {
     public let restitution: Double
 
     private var motion: GravityBounce {
-        // Normalise the change to a height of 1: falling 1 unit in `fallDuration` needs g = 2 / T².
-        let gravity = 2 / (fallDuration * fallDuration)
+        let gravity = Self.gravity(fallDuration: fallDuration)
         let impactSpeed = gravity * fallDuration
         return GravityBounce(gravity: gravity, restitution: restitution, minimumBounceSpeed: impactSpeed * 0.02)
     }
@@ -19,10 +18,16 @@ public struct GravityBounceAnimation: CustomAnimation {
     /// Creates the animation.
     ///
     /// - Parameters:
-    ///   - fallDuration: Seconds to reach the target the first time, greater than zero.
+    ///   - fallDuration: Seconds to reach the target the first time: finite, greater than zero
+    ///     and between about `1e-154` and `1e154`, so that the gravity it implies is a finite
+    ///     number above zero.
     ///   - restitution: Share of the speed kept at each bounce, `0..<1`.
     public init(fallDuration: Double, restitution: Double) {
-        precondition(fallDuration > 0, "fallDuration must be greater than zero")
+        precondition(fallDuration.isFinite && fallDuration > 0, "fallDuration must be finite and greater than zero")
+        let gravity = Self.gravity(fallDuration: fallDuration)
+        // T² overflows to infinity for T ≳ 1e154 (gravity 0) and underflows to 0 for T ≲ 1e-154
+        // (gravity infinite); either would break GravityBounce while the animation runs.
+        precondition(gravity.isFinite && gravity > 0, "fallDuration is too large or too small to animate")
         precondition(restitution >= 0 && restitution < 1, "restitution must be in 0..<1")
         self.fallDuration = fallDuration
         self.restitution = restitution
@@ -36,6 +41,11 @@ public struct GravityBounceAnimation: CustomAnimation {
 
     /// Seconds until the value rests on its target.
     public var duration: Double { motion.duration(height: 1) }
+
+    /// Gravity that drops a value of height 1 in `fallDuration`: 1 = g·T²/2, so g = 2 / T².
+    static func gravity(fallDuration: Double) -> Double {
+        2 / (fallDuration * fallDuration)
+    }
 
     public func animate<V: VectorArithmetic>(value: V, time: TimeInterval, context: inout AnimationContext<V>) -> V? {
         guard time < duration else { return nil }

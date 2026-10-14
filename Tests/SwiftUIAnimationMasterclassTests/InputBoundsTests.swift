@@ -143,6 +143,32 @@ struct InputBoundsTests {
         #expect(still.bounceCount(height: 100) == 0)
     }
 
+    @Test("the most extreme accepted fall durations animate with finite values", arguments: [1e-150, 1e150])
+    func extremeFallDurations(fallDuration: Double) {
+        let animation = GravityBounceAnimation(fallDuration: fallDuration, restitution: 0.5)
+        #expect(animation.duration.isFinite && animation.duration >= fallDuration)
+        #expect(animation.progress(at: fallDuration / 2).isFinite)
+        #expect(animation.progress(at: animation.duration) == 1)
+    }
+
+    #if os(macOS)
+    // Exit tests run the closure in a child process; they are available on macOS, not on iOS.
+    @Test func fallDurationsThatGiveNoUsableGravityAreRejected() async {
+        await #expect(processExitsWith: .failure) {
+            _ = GravityBounceAnimation(fallDuration: .infinity, restitution: 0.5)
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = GravityBounceAnimation(fallDuration: 1e200, restitution: 0.5) // 2 / T² is 0
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = GravityBounceAnimation(fallDuration: 1e-200, restitution: 0.5) // 2 / T² is infinite
+        }
+        await #expect(processExitsWith: .failure) {
+            _ = GravityBounceAnimation(fallDuration: .nan, restitution: 0.5)
+        }
+    }
+    #endif
+
     @Test func springsIgnoreNonFiniteStartsAndVelocities() {
         let spring = DampedSpring.bouncy
         #expect(spring.settlingDuration(initialDisplacement: .nan, initialVelocity: 0) == .infinity)

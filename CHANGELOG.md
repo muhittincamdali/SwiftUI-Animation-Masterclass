@@ -59,8 +59,9 @@ this package rather than copied.
   particle counts are capped at `ParticleSystem.particleLimit` (10,000), queued bursts are a
   single bounded count, huge or infinite birth rates, infinite ranges, emptied color or shape
   lists, degenerate forces, non-finite frame times and canvas sizes are handled, bounces are
-  capped at `GravityBounce.bounceLimit` (100), and NaN or infinite gesture velocities start
-  springs at rest.
+  capped at `GravityBounce.bounceLimit` (100), NaN or infinite gesture velocities start
+  springs at rest, and `.gravityBounce(fallDuration:restitution:)` rejects fall durations
+  that are not finite or whose gravity (2 / T²) would be zero or infinite.
 
 ## [1.0.0] - 2026-02-02
 
