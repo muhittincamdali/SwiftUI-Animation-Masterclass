@@ -1,0 +1,50 @@
+{
+  "name": "Animation Masterclass",
+  "repository": "muhittincamdali/SwiftUI-Animation-Masterclass",
+  "tagline": {
+    "en": "Physics-based motion, particles, change effects and transitions for SwiftUI on iOS and macOS.",
+    "tr": "iOS ve macOS'ta SwiftUI için fizik tabanlı hareket, parçacıklar, değişim efektleri ve geçişler.",
+    "zh-CN": "适用于 iOS 和 macOS 上 SwiftUI 的物理动效、粒子、变化效果和转场。",
+    "ja": "iOS と macOS の SwiftUI 向け、物理ベースのモーション、パーティクル、変化エフェクト、トランジション。",
+    "ko": "iOS와 macOS의 SwiftUI를 위한 물리 기반 모션, 파티클, 변화 효과와 전환.",
+    "es": "Movimiento basado en física, partículas, efectos de cambio y transiciones para SwiftUI en iOS y macOS.",
+    "de": "Physikbasierte Bewegung, Partikel, Änderungseffekte und Übergänge für SwiftUI auf iOS und macOS.",
+    "fr": "Mouvements physiques, particules, effets de changement et transitions pour SwiftUI sur iOS et macOS.",
+    "pt-BR": "Movimento baseado em física, partículas, efeitos de mudança e transições para SwiftUI no iOS e macOS.",
+    "ru": "Физическая анимация, частицы, эффекты изменений и переходы для SwiftUI на iOS и macOS."
+  },
+  "tags": {
+    "en": ["SwiftUI", "Swift 6", "iOS · macOS", "No dependencies"],
+    "tr": ["SwiftUI", "Swift 6", "iOS · macOS", "Bağımlılık yok"],
+    "zh-CN": ["SwiftUI", "Swift 6", "iOS · macOS", "无依赖"],
+    "ja": ["SwiftUI", "Swift 6", "iOS · macOS", "依存関係なし"],
+    "ko": ["SwiftUI", "Swift 6", "iOS · macOS", "의존성 없음"],
+    "es": ["SwiftUI", "Swift 6", "iOS · macOS", "Sin dependencias"],
+    "de": ["SwiftUI", "Swift 6", "iOS · macOS", "Keine Abhängigkeiten"],
+    "fr": ["SwiftUI", "Swift 6", "iOS · macOS", "Sans dépendance"],
+    "pt-BR": ["SwiftUI", "Swift 6", "iOS · macOS", "Sem dependências"],
+    "ru": ["SwiftUI", "Swift 6", "iOS · macOS", "Без зависимостей"]
+  },
+  "motif": "components",
+  "buttons": ["start", "docs", "examples"],
+  "links": {
+    "docs": "https://muhittincamdali.github.io/SwiftUI-Animation-Masterclass/documentation/swiftuianimationmasterclass/",
+    "examples": "Examples/"
+  },
+  "languages": [
+    "en",
+    "tr",
+    "zh-CN",
+    "ja",
+    "ko",
+    "es",
+    "de",
+    "fr",
+    "pt-BR",
+    "ru"
+  ],
+  "docc": {
+    "targets": ["SwiftUIAnimationMasterclass"]
+  },
+  "socialTheme": "dark"
+}
