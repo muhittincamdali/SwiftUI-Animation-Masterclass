@@ -103,9 +103,10 @@ public struct DampedSpring: Hashable, Sendable {
     ///   - initialVelocity: Velocity at the start, in units per second.
     ///   - tolerance: Distance and speed that count as "at rest".
     /// - Returns: Seconds, accurate to a millisecond. `0` when the spring starts at rest, and
-    ///   `infinity` for an undamped spring that does not.
+    ///   `infinity` for an undamped spring that does not or for a start that is not finite.
     public func settlingDuration(initialDisplacement: Double, initialVelocity: Double, tolerance: Double = 0.001) -> Double {
         precondition(tolerance > 0, "tolerance must be greater than zero")
+        guard initialDisplacement.isFinite, initialVelocity.isFinite else { return .infinity }
         let motion = solution(initialDisplacement: initialDisplacement, initialVelocity: initialVelocity)
         guard damping > 0 else {
             return initialDisplacement == 0 && initialVelocity == 0 ? 0 : .infinity
@@ -139,10 +140,11 @@ public struct DampedSpring: Hashable, Sendable {
     ///   - velocity: Velocity of the value, in units per second.
     ///   - start: Value when the animation starts.
     ///   - target: Value the animation moves to.
-    /// - Returns: `velocity / (target - start)`, or `0` when start and target are equal.
+    /// - Returns: `velocity / (target - start)`, or `0` when start and target are equal or a
+    ///   value is not finite (a gesture can report NaN or infinity).
     public static func relativeVelocity(_ velocity: Double, from start: Double, to target: Double) -> Double {
         let distance = target - start
-        guard distance != 0 else { return 0 }
+        guard distance != 0, distance.isFinite, velocity.isFinite else { return 0 }
         return velocity / distance
     }
 

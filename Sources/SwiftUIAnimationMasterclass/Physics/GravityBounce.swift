@@ -5,7 +5,7 @@ import Foundation
 /// Positions are measured as the distance fallen: `0` at the start and `height` on the floor.
 /// Each bounce leaves the floor at `restitution` times the impact speed, so each bounce is
 /// `restitution²` as high as the one before. The motion stops when a bounce would be slower
-/// than ``minimumBounceSpeed`` or after ``maximumBounces``.
+/// than ``minimumBounceSpeed`` or after ``maximumBounces`` (at most ``bounceLimit``).
 ///
 /// ```swift
 /// let drop = GravityBounce(gravity: 2000, restitution: 0.5)
@@ -21,8 +21,12 @@ public struct GravityBounce: Hashable, Sendable {
     public var restitution: Double
     /// Bounces slower than this, in units per second, are skipped and the object rests.
     public var minimumBounceSpeed: Double
-    /// Upper limit on the number of bounces.
+    /// Upper limit on the number of bounces; values above ``bounceLimit`` count as ``bounceLimit``.
     public var maximumBounces: Int
+
+    /// Most bounces ever computed. The properties are mutable, so a restitution of 1 or more set
+    /// after creation would otherwise bounce forever and grow the bounce list without limit.
+    public static let bounceLimit = 100
 
     /// Creates a bouncing fall.
     ///
@@ -94,7 +98,8 @@ public struct GravityBounce: Hashable, Sendable {
         let firstImpact = ((initialVelocity * initialVelocity + 2 * gravity * height).squareRoot() - initialVelocity) / gravity
         var impactSpeed = initialVelocity + gravity * firstImpact
         var path = [Flight(impact: firstImpact, launchSpeed: 0)]
-        while path.count <= maximumBounces {
+        let bounces = min(maximumBounces, Self.bounceLimit)
+        while path.count <= bounces {
             let launchSpeed = impactSpeed * restitution
             guard launchSpeed >= minimumBounceSpeed, launchSpeed > 0 else { break }
             path[path.count - 1].launchSpeed = launchSpeed

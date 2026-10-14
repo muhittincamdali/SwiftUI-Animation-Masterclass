@@ -14,7 +14,8 @@ public enum ParticleForce: Hashable, Sendable {
     ///
     /// - Parameters:
     ///   - strength: Largest acceleration in points per second squared.
-    ///   - scale: Size of the swirls in points.
+    ///   - scale: Size of the swirls in points, greater than zero; other values turn the
+    ///     force off.
     case turbulence(strength: Double, scale: Double)
     /// Pulls particles toward `center` (pushes them away when `strength` is negative).
     ///
@@ -41,6 +42,7 @@ public enum ParticleForce: Hashable, Sendable {
         case let .wind(x, y):
             return (x, y)
         case let .turbulence(strength, scale):
+            guard scale > 0, scale.isFinite else { return (0, 0) }
             let angle = Self.flowAngle(x: particle.x / scale, y: particle.y / scale, time: time)
             return (strength * cos(angle), strength * sin(angle))
         case let .attractor(center, strength):

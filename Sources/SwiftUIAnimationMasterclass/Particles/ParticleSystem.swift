@@ -26,8 +26,13 @@ public struct ParticleSystem: Sendable {
     public private(set) var time: Double = 0
 
     private var generator: SplitMix64
-    private var pendingBursts: [Int] = []
+    /// Particles queued by ``burst(count:)``, never more than ``capacity``.
+    private var pendingBirths = 0
     private var birthDebt: Double = 0
+
+    /// Most particles a system keeps alive, whatever ``ParticleEmitter/maxParticles`` says.
+    /// It bounds memory and the work per frame.
+    public static let particleLimit = 10_000
 
     /// Longest step simulated at once; longer updates are split so fast particles stay stable.
     static let maximumStep = 1.0 / 60
@@ -50,36 +55,46 @@ public struct ParticleSystem: Sendable {
     /// Whether nothing is left to simulate: no living particles, no pending burst and no
     /// continuous emission.
     public var isIdle: Bool {
-        particles.isEmpty && pendingBursts.isEmpty && !(isEmitting && emitter.birthRate > 0)
+        particles.isEmpty && pendingBirths == 0 && !(isEmitting && emitter.birthRate > 0)
     }
+
+    /// Most particles alive at once: ``ParticleEmitter/maxParticles``, at most ``particleLimit``.
+    public var capacity: Int { min(max(0, emitter.maxParticles), Self.particleLimit) }
 
     /// Queues a burst; the particles are born on the next ``update(by:in:)``.
     ///
+    /// Bursts queued before the next update add up, but never beyond ``capacity``.
+    ///
     /// - Parameter count: Number of particles; `nil` uses the emitter's ``ParticleEmitter/burstCount``.
     public mutating func burst(count: Int? = nil) {
-        pendingBursts.append(max(0, count ?? emitter.burstCount))
+        let requested = min(max(0, count ?? emitter.burstCount), capacity)
+        pendingBirths = min(pendingBirths + requested, capacity)
     }
 
     /// Removes every particle and pending burst.
     public mutating func reset() {
         particles.removeAll()
-        pendingBursts.removeAll()
+        pendingBirths = 0
         birthDebt = 0
     }
 
     /// Advances the simulation.
     ///
     /// - Parameters:
-    ///   - duration: Seconds that passed since the last update. Values above 0.25 s are
-    ///     treated as 0.25 s.
-    ///   - canvas: Size of the area the particles live in, in points.
+    ///   - duration: Seconds that passed since the last update. Values above 0.25 s, infinity
+    ///     included, are treated as 0.25 s; negative values and NaN as 0.
+    ///   - canvas: Size of the area the particles live in, in points. A negative or
+    ///     non-finite dimension counts as 0.
     public mutating func update(by duration: Double, in canvas: CGSize) {
-        for count in pendingBursts {
-            spawn(count, in: canvas)
-        }
-        pendingBursts.removeAll()
+        let canvas = CGSize(
+            width: max(0, Self.finiteOrZero(canvas.width)),
+            height: max(0, Self.finiteOrZero(canvas.height))
+        )
+        spawn(pendingBirths, in: canvas)
+        pendingBirths = 0
 
-        var remaining = min(max(duration, 0), Self.maximumUpdate)
+        // `max(0, .nan)` is 0, so a NaN duration simulates nothing.
+        var remaining = min(max(0, duration), Self.maximumUpdate)
         while remaining > 0 {
             let step = min(remaining, Self.maximumStep)
             advance(by: step, in: canvas)
@@ -91,15 +106,18 @@ public struct ParticleSystem: Sendable {
     // MARK: Births
 
     private mutating func emitContinuously(during step: Double, in canvas: CGSize) {
-        guard isEmitting, emitter.birthRate > 0 else {
+        let rate = emitter.birthRate
+        guard isEmitting, rate.isFinite, rate > 0 else {
             birthDebt = 0
             return
         }
-        birthDebt += emitter.birthRate * step
-        let births = Int(birthDebt)
-        birthDebt -= Double(births)
+        birthDebt += rate * step
+        let room = max(0, capacity - particles.count)
+        // Bounded by `room` before the conversion, so a huge rate cannot overflow `Int`.
+        let births = Int(min(birthDebt, Double(room)))
+        // A full system skips births instead of owing them, so no flood follows when room frees up.
+        birthDebt = min(birthDebt - Double(births), 1)
         for _ in 0..<births {
-            guard particles.count < emitter.maxParticles else { break }
             var particle = makeParticle(in: canvas)
             // Each birth happened somewhere during the step that just ended; moving it by the
             // time since then keeps particles from leaving in visible rows.
@@ -110,7 +128,7 @@ public struct ParticleSystem: Sendable {
     }
 
     private mutating func spawn(_ count: Int, in canvas: CGSize) {
-        let room = max(0, emitter.maxParticles - particles.count)
+        let room = max(0, capacity - particles.count)
         for _ in 0..<min(count, room) {
             particles.append(makeParticle(in: canvas))
         }
@@ -118,18 +136,21 @@ public struct ParticleSystem: Sendable {
 
     private mutating func makeParticle(in canvas: CGSize) -> Particle {
         let origin = birthPoint(in: canvas)
-        let halfSpread = emitter.spread.radians / 2
-        let angle = emitter.direction.radians + (halfSpread > 0 ? Double.random(in: -halfSpread...halfSpread, using: &generator) : 0)
+        let halfSpread = min(Self.finiteOrZero(emitter.spread.radians / 2), .pi)
+        let angle = Self.finiteOrZero(emitter.direction.radians)
+            + (halfSpread > 0 ? Double.random(in: -halfSpread...halfSpread, using: &generator) : 0)
         let speed = sample(emitter.speed)
-        let colorIndex = Int.random(in: 0..<emitter.colors.count, using: &generator)
-        let shapeIndex = Int.random(in: 0..<emitter.shapes.count, using: &generator)
+        let colorIndex = index(below: emitter.colors.count)
+        let shapeIndex = index(below: emitter.shapes.count)
+        let lifetime = sample(emitter.lifetime)
         return Particle(
             x: origin.x,
             y: origin.y,
             velocityX: speed * cos(angle),
             velocityY: speed * sin(angle),
             age: 0,
-            lifetime: sample(emitter.lifetime),
+            // A zero or negative lifetime ends the particle on the next step.
+            lifetime: max(0, lifetime),
             size: sample(emitter.size),
             rotation: emitter.alignsWithMotion ? angle : Double.random(in: 0..<(2 * .pi), using: &generator),
             spin: sample(emitter.spin),
@@ -140,11 +161,15 @@ public struct ParticleSystem: Sendable {
     }
 
     private mutating func birthPoint(in canvas: CGSize) -> CGPoint {
-        let anchor = CGPoint(x: emitter.position.x * canvas.width, y: emitter.position.y * canvas.height)
+        let anchor = CGPoint(
+            x: Self.finiteOrZero(emitter.position.x) * canvas.width,
+            y: Self.finiteOrZero(emitter.position.y) * canvas.height
+        )
         switch emitter.source {
         case .point:
             return anchor
         case let .circle(radius):
+            let radius = Self.finiteOrZero(radius)
             let angle = Double.random(in: 0..<(2 * .pi), using: &generator)
             return CGPoint(x: anchor.x + radius * cos(angle), y: anchor.y + radius * sin(angle))
         case let .edge(edge):
@@ -164,8 +189,26 @@ public struct ParticleSystem: Sendable {
         }
     }
 
+    /// A uniform sample of `range`. `Double.random(in:)` traps on infinite bounds or an
+    /// infinite width, so a range with one infinite bound gives its finite end, a range too wide
+    /// to measure gives its midpoint, and a range with no finite bound gives 0.
     private mutating func sample(_ range: ClosedRange<Double>) -> Double {
-        range.lowerBound == range.upperBound ? range.lowerBound : Double.random(in: range, using: &generator)
+        let lower = range.lowerBound
+        let upper = range.upperBound
+        guard lower.isFinite, upper.isFinite else {
+            return lower.isFinite ? lower : Self.finiteOrZero(upper)
+        }
+        guard (upper - lower).isFinite else { return lower / 2 + upper / 2 }
+        return lower == upper ? lower : Double.random(in: range, using: &generator)
+    }
+
+    /// A random index below `count`, or 0 when `count` is 0 (the renderer then skips the particle).
+    private mutating func index(below count: Int) -> Int {
+        count > 0 ? Int.random(in: 0..<count, using: &generator) : 0
+    }
+
+    static func finiteOrZero(_ value: Double) -> Double {
+        value.isFinite ? value : 0
     }
 
     // MARK: Motion
@@ -187,6 +230,9 @@ public struct ParticleSystem: Sendable {
             accelerationX += acceleration.x
             accelerationY += acceleration.y
         }
+        // A force with extreme parameters must not turn the particle's state into NaN.
+        if !accelerationX.isFinite { accelerationX = 0 }
+        if !accelerationY.isFinite { accelerationY = 0 }
         particle.velocityX += accelerationX * step
         particle.velocityY += accelerationY * step
         if emitter.drag > 0 {

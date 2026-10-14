@@ -80,7 +80,7 @@ struct SnapDragModifier: ViewModifier {
             }
             .onEnded { value in
                 let release = position ?? restingOffset
-                let velocity = axis == .horizontal ? value.velocity.width : value.velocity.height
+                let velocity = SnapDrag.finiteVelocity(axis == .horizontal ? value.velocity.width : value.velocity.height)
                 let index = SnapPoints(offsets.map(Double.init)).index(forRelease: release, velocity: velocity, decay: decay)
                 let target = offsets.sorted()[index]
                 dragStart = nil
@@ -106,6 +106,12 @@ struct SnapDragModifier: ViewModifier {
 enum SnapDrag {
     /// Rubber-band resistance used past the first and last offsets, in points.
     static let resistance: CGFloat = 200
+
+    /// The release velocity, or 0 when the gesture reports a non-finite one: NaN would pick the
+    /// first offset whatever the position.
+    static func finiteVelocity(_ velocity: CGFloat) -> CGFloat {
+        velocity.isFinite ? velocity : 0
+    }
 
     /// Position of the view while dragging: follows the finger between the outer offsets and
     /// stretches with resistance beyond them.

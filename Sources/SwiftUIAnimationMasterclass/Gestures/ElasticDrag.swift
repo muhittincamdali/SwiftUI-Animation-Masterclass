@@ -50,9 +50,11 @@ enum ElasticDrag {
     /// projected onto the direction of travel.
     static func returnVelocity(offset: CGSize, velocity: CGSize) -> Double {
         let lengthSquared = offset.width * offset.width + offset.height * offset.height
-        guard lengthSquared > 0 else { return 0 }
+        guard lengthSquared > 0, lengthSquared.isFinite else { return 0 }
         // The change is −offset; velocity along it, divided by its length, gives the relative value.
-        return -(velocity.width * offset.width + velocity.height * offset.height) / lengthSquared
+        let relative = -(velocity.width * offset.width + velocity.height * offset.height) / lengthSquared
+        // A gesture can report a non-finite velocity; the spring then starts at rest.
+        return relative.isFinite ? relative : 0
     }
 
     /// Derivative of the rubber band at `overshoot`: how much of the finger's motion is shown.

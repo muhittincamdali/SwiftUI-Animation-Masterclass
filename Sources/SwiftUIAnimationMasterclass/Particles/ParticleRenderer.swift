@@ -6,18 +6,21 @@ enum ParticleRenderer {
     static let textPointSize: CGFloat = 40
 
     static func draw(_ particles: [Particle], emitter: ParticleEmitter, in context: inout GraphicsContext) {
-        guard !particles.isEmpty else { return }
+        // An emitter whose colors or shapes were emptied after creation draws nothing.
+        guard !particles.isEmpty, !emitter.colors.isEmpty, !emitter.shapes.isEmpty else { return }
         if emitter.blending == .additive {
             context.blendMode = .plusLighter
         }
-        var images: [Int: GraphicsContext.ResolvedImage] = [:]
+        var images: [ImageKey: GraphicsContext.ResolvedImage] = [:]
         var texts: [Int: GraphicsContext.ResolvedText] = [:]
 
         for particle in particles {
             let opacity = emitter.opacity(at: particle.progress)
             guard opacity > 0 else { continue }
             let size = particle.size * emitter.scale(at: particle.progress)
-            guard size > 0 else { continue }
+            guard size > 0, size.isFinite, particle.x.isFinite, particle.y.isFinite, particle.rotation.isFinite else {
+                continue
+            }
 
             var layer = context
             layer.opacity = opacity
@@ -26,7 +29,7 @@ enum ParticleRenderer {
             if particle.tumble != 0 {
                 // Scaling one axis by a cosine reads as a flat piece flipping in 3D.
                 let flip = cos(particle.tumble * particle.age)
-                layer.scaleBy(x: 1, y: max(abs(flip), 0.08))
+                layer.scaleBy(x: 1, y: flip.isFinite ? max(abs(flip), 0.08) : 1)
             }
 
             let color = emitter.colors[particle.colorIndex % emitter.colors.count]
@@ -44,7 +47,7 @@ enum ParticleRenderer {
             case .star:
                 layer.fill(star(size: size), with: .color(color))
             case let .symbol(name):
-                let key = particle.shapeIndex * 1024 + particle.colorIndex
+                let key = ImageKey(shape: particle.shapeIndex, color: particle.colorIndex)
                 var image = images[key] ?? context.resolve(Image(systemName: name))
                 image.shading = .color(color)
                 images[key] = image
@@ -58,6 +61,12 @@ enum ParticleRenderer {
                 layer.draw(text, at: .zero, anchor: .center)
             }
         }
+    }
+
+    /// Resolved symbol images are cached per shape and color within one frame.
+    private struct ImageKey: Hashable {
+        var shape: Int
+        var color: Int
     }
 
     static func centeredRect(width: Double, height: Double) -> CGRect {
